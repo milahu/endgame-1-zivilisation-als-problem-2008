@@ -26,3 +26,12 @@ do_level = True
 lowthresh = 0.05 # about 15/255 in GIMP
 highthresh = 0.95 # about 240/255 in GIMP
 # level = f"{lowthresh}x{highthresh}%"
+
+# TODO restore to remove noise from text-only pages
+r'''
+# leveling for text-only books
+# lowthresh = 0.2 is too dark for the book cover -> use 0.1
+# lowthresh = 0.1 # about 25/255 in GIMP
+lowthresh = 0.2 # about 50/255 in GIMP
+highthresh = 0.9 # about 230/255 in GIMP
+'''
