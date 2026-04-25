@@ -44,10 +44,10 @@ zu oft mit wenig mehr als Schönheitsreparaturen begegnet wird.
 
 ## scans
 
-### TODO_BOOK_TORRENT_NAME
+### endgame.teil.1.derrick.jensen.2008.600dpi.german.book.scan
 
 ```
-TODO_BOOK_TORRENT_MAGNET_LINK
+magnet:?xt=urn:btih:a3a07f16c1fa8681536a9e301d30d41cb0b8a0d5&dn=endgame.teil.1.derrick.jensen.2008.600dpi.german.book.scan&xl=685275654&tr=udp%3A%2F%2F185.216.179.62%3A25%2Fannounce&tr=udp%3A%2F%2F93.158.213.92%3A1337%2Fannounce&tr=udp%3A%2F%2F107.189.2.131%3A1337%2Fannounce&piece_size=4194304
 ```
 
 ## mirrors
