@@ -20,6 +20,7 @@ fi
 
 # downscale to 300 dpi
 scale=$(python -c "print(300 / $scan_resolution)")
+scale=1 # dont scale. scaling gives poor quality
 
 args=(
   hocr-to-epub-fxl
@@ -44,26 +45,27 @@ args+=(
   --scale "$scale"
   --image-format avif
   --text-format html
-  --doc-title "$doc_title"
+  # --doc-title "$doc_title"
   --doc-modified "$doc_modified"
-)
-todo_args+=(
-  --doc-title ""
-  --doc-subtitle ""
+  --doc-title "Endgame, Teil 1"
+  --doc-subtitle "Zivilisation als Problem"
   --doc-description ""
   --doc-subject ""
-  --doc-date 2025
+  --doc-date 2008
   --doc-edition 1
-  --doc-extent "123 pages"
-  --doc-author ""
-  --doc-introducer ""
-  --doc-contributor ""
-  --doc-translator ""
-  --doc-publisher ""
+  --doc-extent "540 pages"
+  --doc-author "Derrick Jensen"
+  # --doc-introducer ""
+  # --doc-contributor ""
+  --doc-translator "Marion Schweizer"
+  --doc-translator "Thomas Pfeiffer"
+  # --doc-publisher ""
   --doc-language de
-  --doc-isbn 0000000000000
-  --doc-cover-image 070-deskew/999.tiff
-  --canonical-url-base https://milahu.github.io/todo/
+  --doc-isbn 9783866121928
+  --doc-cover-image 070-deskew/0541.tiff
+  --canonical-url-base https://milahu.github.io/endgame-1-zivilisation-als-problem-2008/
+  --doc-contents-file contents.md
+  --color-image-pages 541,542
 )
 
  printf '>'
