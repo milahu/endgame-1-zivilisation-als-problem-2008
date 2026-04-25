@@ -1,0 +1,36 @@
+- Prämissen 7
+- Apokalypse 17
+- Fünf Geschichten 21
+- Zivilisation 33
+- Katastrophe 45
+- Gewalt 67
+- Unumkehrbar 91
+- Gegengewalt 105
+- Dem Land zuhören 117
+- Belastbarkeit und ihre Grenzen 133
+- Was braucht die Natur? 159
+- Jäger und Beute 171
+- Wahlmöglichkeiten 177
+- Misshandlung 195
+- Eine Kultur der Besatzung 233
+- Warum die Zivilisation die Welt zerstört, Teil I 261
+- Warum die Zivilisation die Welt zerstört, Teil II 289
+- Die Zivilisation stürzen, Teil I 315
+- Eine Geschichte der Gewalt 343
+- Hass 359
+- Liebe impliziert nicht zwangsläufig auch Pazifismus 375
+- Es ist Zeit zu verschwinden 383
+- Mut 397
+- Hoffnung 409
+- Ihr Wahnsinn war von Dauer 423
+- Romantischer Nihilismus 433
+- Leugnen bis zum Abwinken 439
+- Zur Tat schreiten 447
+- Dreh- und Angelpunkte 463
+- Gewalt 475
+- Kaufen, bis die Nachhaltigkeit kommt 483
+- Empathie und ihre Kehrseite 497
+- Sollen wir zurückschlagen? 511
+- Danksagung 535
+- Anmerkungen 537
+- Literaturverzeichnis 538
