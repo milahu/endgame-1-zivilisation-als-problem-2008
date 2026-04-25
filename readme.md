@@ -1,12 +1,44 @@
-# TODO_BOOK_AUTHOR_NAME_YEAR
+# Endgame, Teil 1. Zivilisation als Problem (2008)
 
-![TODO_BOOK_AUTHOR_NAME_YEAR](cover.avif)
+![Endgame, Teil 1. Zivilisation als Problem (2008)](cover.avif)
 
-TODO_BOOK_STORE_URL
+https://www.amazon.de/dp/386612192X
 
 <blockquote>
 
-TODO_BOOK_STORE_DESCRIPTION
+Endgame: Zivilisation als Problem
+
+Derrick Jensen (Autor), Marion Schweizer (Übersetzer)
+
+4.6 out of 5 stars, (11) ratings
+
+Jensen zeigt mit bezwingender Logik,
+weshalb unsere Zivilisation absolut und grundsätzlich unvereinbar ist
+mit ökologischer Nachhaltigkeit.
+
+Unsere auf Gewalt aufbauende Gesellschaft stellt - so die provokante These - eine Sackgasse dar,
+wenn nicht gar ein sich selbst zerstörendes System.
+
+In radikaler Fortsetzung dieser Gedanken macht Jensen deutlich,
+dass unsere Welt letztlich nur durch die Zerstörung der industriellen Zivilisation gerettet werden kann.
+
+Ein provokantes,
+ein wachrüttelndes , ein absolut notwendiges Buch für eine Zeit,
+in der den dringlich ökologischen Herausforderungen
+zu oft mit wenig mehr als Schönheitsreparaturen begegnet wird.
+
+- Herausgeber: Pendo
+- Erscheinungstermin: 2. September 2008
+- Auflage: 1.
+- Sprache: Deutsch
+- Seitenzahl der Print-Ausgabe: 544 Seiten
+- ISBN-10: 386612192X
+- ISBN-13: 9783866121928
+- Abmessungen: 15.4 x 4.8 x 22.7 cm
+- Amazon Bestseller-Rang:
+  - Nr. 1.197.747 in Bücher
+  - Nr. 16.718 in Umwelt & Ökologie (Bücher)
+  - Nr. 27.830 in Gesellschaft (Bücher)
 
 </blockquote>
 
@@ -20,12 +52,11 @@ TODO_BOOK_TORRENT_MAGNET_LINK
 
 ## mirrors
 
-- https://github.com/TODO_REPO_OWNER_USERNAME/TODO_REPO_NAME
-- http://gg6zxtreajiijztyy5g6bt5o6l3qu32nrg7eulyemlhxwwl6enk6ghad.onion/TODO_REPO_OWNER_USERNAME/TODO_REPO_NAME
-- http://git.dkforestseeaaq2dqz2uflmlsybvnq2irzn4ygyvu53oazyorednviid.onion/TODO_REPO_OWNER_USERNAME/TODO_REPO_NAME
-- http://it7otdanqu7ktntxzm427cba6i53w6wlanlh23v5i3siqmos47pzhvyd.onion/TODO_REPO_OWNER_USERNAME/TODO_REPO_NAME
-- http://gdatura24gtdy23lxd7ht3xzx6mi7mdlkabpvuefhrjn4t5jduviw5ad.onion/TODO_REPO_OWNER_USERNAME/TODO_REPO_NAME
-
+- https://github.com/milahu/endgame-1-zivilisation-als-problem-2008
+- http://gg6zxtreajiijztyy5g6bt5o6l3qu32nrg7eulyemlhxwwl6enk6ghad.onion/milahu/endgame-1-zivilisation-als-problem-2008
+- http://git.dkforestseeaaq2dqz2uflmlsybvnq2irzn4ygyvu53oazyorednviid.onion/milahu/endgame-1-zivilisation-als-problem-2008
+- http://it7otdanqu7ktntxzm427cba6i53w6wlanlh23v5i3siqmos47pzhvyd.onion/milahu/endgame-1-zivilisation-als-problem-2008
+- http://gdatura24gtdy23lxd7ht3xzx6mi7mdlkabpvuefhrjn4t5jduviw5ad.onion/milahu/endgame-1-zivilisation-als-problem-2008
 
 
 ## template
