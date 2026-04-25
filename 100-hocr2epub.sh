@@ -43,7 +43,7 @@ doc_modified=$(
 
 args+=(
   --scale "$scale"
-  --image-format avif
+  # --image-format avif
   --text-format html
   # --doc-title "$doc_title"
   --doc-modified "$doc_modified"
