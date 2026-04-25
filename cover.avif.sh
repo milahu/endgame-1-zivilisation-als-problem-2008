@@ -1,6 +1,6 @@
 #!/bin/sh
 
 # TODO set config values
-cover_src=070-deskew/273.tiff
+cover_src=070-deskew/0541.tiff
 
 magick "$cover_src" -scale 50% -quality 50% cover.avif
