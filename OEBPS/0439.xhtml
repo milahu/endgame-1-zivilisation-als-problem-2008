@@ -27,7 +27,6 @@ body {
 }
 div.page {
  position: relative;
- overflow: hidden;
  transform-origin: top left;
  margin: auto;
 }
@@ -39,17 +38,14 @@ div.page > img.page {
  user-select: none;
 }
 div.p {
- position: absolute;
- white-space: nowrap;
 }
 div.p > div, span {
  display: inline;
- position: relative;
+ position: absolute;
  color: transparent;
  white-space: nowrap;
  line-height: 1;
  transform-origin: left center;
- vertical-align: top;
 }
 @media (prefers-color-scheme: dark) {
  div.page { filter: invert(); }
@@ -61,72 +57,54 @@ div.p, div.p > div, span {
  font-kerning: none;
 }
 </style>
-<script type="application/javascript">
+<script type="application/javascript" class="pragma-once">
 // <![CDATA[
-if (!globalThis._userAgentDetectionIsDone) {
-globalThis._userAgentDetectionIsDone = true;
-(() => {
-  const ua = navigator.userAgent;
-  if (ua.includes('Firefox')) { console.log('user agent is Firefox'); globalThis._userAgentIsFirefox = true; return; }
-  if (ua.includes('Edg')) { console.log('user agent is Edge'); globalThis._userAgentIsEdge = true; return; }
-  if (ua.includes('Chrome')) { console.log('user agent is Chrome'); globalThis._userAgentIsChrome = true; return; }
-  if (ua.includes('Safari')) { console.log('user agent is Safari'); globalThis._userAgentIsSafari = true; return; }
-})();
-}
-if (!globalThis._DOMContentLoadedEventListenerIsAdded) {
-globalThis._DOMContentLoadedEventListenerIsAdded = true;
-document.addEventListener('DOMContentLoaded', () => {
-  if (globalThis._userAgentIsFirefox) {
-    console.log('removing &nbsp; after words to fix clipboard text');
-    for (const span of document.querySelectorAll('span')) {
-      if (span.innerHTML.slice(-6) != '&nbsp;') continue;
-      span.innerHTML = span.innerHTML.slice(0, -6);
-    }
-  }
-});
-}
+function makeRelativeSpans(e=1,t=1){let l=.6,n=parseFloat,i="textContent";for(let o of document.querySelectorAll("div.p")){let s=o.style,r=0,a=0;s.position="absolute",s.whiteSpace="nowrap";let p=n(s.fontSize||16)*l,c=n(s.left||0),f=n(s.top||0),h=o.querySelectorAll("span"),m=h.length-1;for(let o=0;o<h.length;o++){let s=h[o],u=h[o+1];if(null==s)continue;let S=s.innerHTML.startsWith("<br"),g=u?.innerHTML.startsWith("<br"),y=s.style,d=n(y.left||0)-c,v=n(y.top||0)-f,W=n(y.fontSize||16),x=y.transform?.match(/scaleX\(([^)]+)\)/),b=x?n(x[1]):1,z=s[i].length;s[i].endsWith("\xa0")&&(s[i]=s[i].slice(0,-1),z--);let A=0;if(g&&o<m-1&&e){let e=h[o+2];if(s[i].endsWith("-")&&" "!=s[i].slice(-2,-1)){let r=e[i];r.endsWith("\xa0")&&(r=r.slice(0,-1)),s[i]=s[i].slice(0,-1)+(t?"\xad":"")+r,z=z-1+r.length;let a=n(e.style.fontSize||16),c=e.style.transform?.match(/scaleX\(([^)]+)\)/),f=c?n(c[1]):1;A=a*l*r.length*f+p,e.remove(),h[o+2]=null}}let q=W*l*z,w=q*b,H=(w-q)/z;y.letterSpacing=H+"px";let L=d-r,M=v-a;y.position="relative",y.verticalAlign="top",y.display="inline",y.left=L+"px",y.top=M+"px",r+=w+p,A&&(r-=A,A=0),S&&o<m&&(e?s.remove():(r=0,a+=W))}}}
+let joinLines = 1;
+let addSoftHyphens = 1;
+document.addEventListener('DOMContentLoaded', () => makeRelativeSpans(joinLines, addSoftHyphens));
 // ]]>
 </script>
 </head>
 <body>
 <div class="page" id="page-0439" style="width: 3390px; height: 5083px">
 <img class="page" alt="" src="images/0439.avif" style="width: 3390px; height: 5083px"/>
-<div class="p" style="left:921.0px;top:1038.0px;font-size:16px">
-<span style="left:0.0px;top:1.0px;font-size:70.0px;letter-spacing:21.999302455357142px">LEUGNEN</span>
-<span style="left:30.3671875px;top:0.0px;font-size:71.0px;letter-spacing:2.5877278645833335px">BIS</span>
-<span style="left:52.734375px;top:1.0px;font-size:70.0px;letter-spacing:30.523111979166668px">ZUM</span>
-<span style="left:76.1015625px;top:1.0px;font-size:69.0px;letter-spacing:24.33349609375px">ABWINKEN</span><span style="left:76.1015625px;font-size:10px"><br/><br/></span>
+<div class="p" style="left:921px;top:1038px;font-size:16px">
+<span style="left:921px;top:1039px;font-size:70px;transform:scaleX(1.5220087061588625)">LEUGNEN</span>
+<span style="left:1410px;top:1038px;font-size:71px;transform:scaleX(1.0605378690091345)">BIS</span>
+<span style="left:1578px;top:1039px;font-size:70px;transform:scaleX(1.7242652454331286)">ZUM</span>
+<span style="left:1829px;top:1039px;font-size:69px;transform:scaleX(1.5857634848431421)">ABWINKEN</span><span style="left:76.1015625px;font-size:10px"><br/><br/></span>
 </div>
-<div class="p" style="left:625.0px;top:1400.0px;font-size:16px">
-<span style="left:0.0px;top:3.0px;font-size:58.0px;letter-spacing:9.747721354166666px">Wir</span>
-<span style="left:16.3671875px;top:3.0px;font-size:59.0px;letter-spacing:-2.32099609375px">irren</span>
-<span style="left:34.734375px;top:1.0px;font-size:60.0px;letter-spacing:-0.923046875px">nicht</span>
-<span style="left:52.1015625px;top:0.0px;font-size:70.0px;letter-spacing:-7.5185546875px">deshalb,</span>
-<span style="left:67.46875px;top:0.0px;font-size:61.0px;letter-spacing:-2.22509765625px">weil</span>
-<span style="left:84.8359375px;top:0.0px;font-size:61.0px;letter-spacing:-3.0584309895833335px">die</span>
-<span style="left:98.203125px;top:0.0px;font-size:61.0px;letter-spacing:3.77490234375px">Wahrheit</span>
-<span style="left:115.5703125px;top:22.0px;font-size:39.0px;letter-spacing:11.52001953125px">so</span>
-<span style="left:134.9375px;top:0.0px;font-size:80.0px;letter-spacing:-12.27517361111111px">schwierig</span>
-<span style="left:152.3046875px;top:22.0px;font-size:39.0px;letter-spacing:15.52001953125px">zu</span><span style="left:152.3046875px;font-size:115.0px"><br/></span>
-<span style="left:4.0px;top:0.0px;font-size:61.0px;letter-spacing:1.47490234375px">sehen</span>
-<span style="left:24.3671875px;top:9.0px;font-size:52.0px;letter-spacing:4.493359375px">wäre.</span>
-<span style="left:45.734375px;top:4.0px;font-size:56.0px;letter-spacing:18.618489583333332px">Man</span>
-<span style="left:67.1015625px;top:0.0px;font-size:60.0px;letter-spacing:-3.923046875px">sieht</span>
-<span style="left:86.46875px;top:2.0px;font-size:58.0px;letter-spacing:-5.9189453125px">sie</span>
-<span style="left:106.8359375px;top:0.0px;font-size:60.0px;letter-spacing:2.5436197916666665px">auf</span>
-<span style="left:120.203125px;top:0.0px;font-size:60.0px;letter-spacing:5.543619791666667px">den</span>
-<span style="left:142.5703125px;top:13.0px;font-size:47.0px;letter-spacing:5.70361328125px">ersten</span>
-<span style="left:164.9375px;top:0.0px;font-size:60.0px;letter-spacing:-4.789713541666667px">Blick.</span>
-<span style="left:181.3046875px;top:2.0px;font-size:58.0px;letter-spacing:9.747721354166666px">Wir</span>
-<span style="left:201.671875px;top:2.0px;font-size:67.0px;letter-spacing:-9.504069010416666px">irren,</span><span style="left:201.671875px;font-size:118.0px"><br/></span>
-<span style="left:1.0px;top:0.0px;font-size:60.0px;letter-spacing:-1.623046875px">weil</span>
-<span style="left:12.3671875px;top:22.0px;font-size:38.0px;letter-spacing:8.6220703125px">es</span>
-<span style="left:22.734375px;top:0.0px;font-size:78.0px;letter-spacing:-3.4599609375px">bequemer</span>
-<span style="left:34.1015625px;top:2.0px;font-size:58.0px;letter-spacing:-11.1689453125px">ist.</span><span style="left:34.1015625px;font-size:10px"><br/><br/></span>
+<div class="p" style="left:625px;top:1400px;font-size:16px">
+<span style="left:625px;top:1403px;font-size:58px;transform:scaleX(1.2791527999179648)">Wir</span>
+<span style="left:785px;top:1403px;font-size:59px;transform:scaleX(0.9346584738889577)">irren</span>
+<span style="left:979px;top:1401px;font-size:60px;transform:scaleX(0.974447147877805)">nicht</span>
+<span style="left:1182px;top:1400px;font-size:70px;transform:scaleX(0.82159657050168)">deshalb,</span>
+<span style="left:1484px;top:1400px;font-size:61px;transform:scaleX(0.9394120697219895)">weil</span>
+<span style="left:1649px;top:1400px;font-size:61px;transform:scaleX(0.9167209569267724)">die</span>
+<span style="left:1773px;top:1400px;font-size:61px;transform:scaleX(1.102788081847553)">Wahrheit</span>
+<span style="left:2124px;top:1422px;font-size:39px;transform:scaleX(1.4906315636242644)">so</span>
+<span style="left:2223px;top:1400px;font-size:80px;transform:scaleX(0.7451383256736054)">schwierig</span>
+<span style="left:2573px;top:1422px;font-size:39px;transform:scaleX(1.6609894566098948)">zu</span><span style="left:152.3046875px;font-size:115px"><br/></span>
+<span style="left:629px;top:1518px;font-size:61px;transform:scaleX(1.0401606105327537)">sehen</span>
+<span style="left:850px;top:1527px;font-size:52px;transform:scaleX(1.1435273566660429)">wäre.</span>
+<span style="left:1060px;top:1522px;font-size:56px;transform:scaleX(1.5522341945699607)">Man</span>
+<span style="left:1248px;top:1518px;font-size:60px;transform:scaleX(0.89139767504731)">sieht</span>
+<span style="left:1438px;top:1520px;font-size:58px;transform:scaleX(0.8304947283049473)">sie</span>
+<span style="left:1555px;top:1518px;font-size:60px;transform:scaleX(1.070415427593043)">auf</span>
+<span style="left:1694px;top:1518px;font-size:60px;transform:scaleX(1.153464900423538)">den</span>
+<span style="left:1851px;top:1531px;font-size:47px;transform:scaleX(1.2015668409518385)">ersten</span>
+<span style="left:2087px;top:1518px;font-size:60px;transform:scaleX(0.8674056051185005)">Blick.</span>
+<span style="left:2301px;top:1520px;font-size:58px;transform:scaleX(1.2791527999179648)">Wir</span>
+<span style="left:2465px;top:1520px;font-size:67px;transform:scaleX(0.764385695206046)">irren,</span><span style="left:201.671875px;font-size:118px"><br/></span>
+<span style="left:626px;top:1636px;font-size:60px;transform:scaleX(0.9550689375506894)">weil</span>
+<span style="left:785px;top:1658px;font-size:38px;transform:scaleX(1.3768728390318863)">es</span>
+<span style="left:868px;top:1636px;font-size:78px;transform:scaleX(0.9263210431093643)">bequemer</span>
+<span style="left:1237px;top:1638px;font-size:58px;transform:scaleX(0.6801465447324999)">ist.</span><span style="left:34.1015625px;font-size:10px"><br/><br/></span>
 </div>
-<div class="p" style="left:1243.0px;top:1751.0px;font-size:16px">
-<span style="left:0.0px;top:1.0px;font-size:60.0px;letter-spacing:2.765842013888889px">Alexander</span>
-<span style="left:8.3671875px;top:0.0px;font-size:79.0px;letter-spacing:-12.228678385416666px">Solschenizyn</span><span style="left:8.3671875px;font-size:10px"><br/><br/><br/><br/></span>
+<div class="p" style="left:1243px;top:1751px;font-size:16px">
+<span style="left:1243px;top:1752px;font-size:60px;transform:scaleX(1.076567240395302)">Alexander</span>
+<span style="left:1611px;top:1751px;font-size:79px;transform:scaleX(0.7428897991588558)">Solschenizyn</span><span style="left:8.3671875px;font-size:10px"><br/><br/><br/><br/></span>
 </div>
 </div>
 </body>

@@ -27,7 +27,6 @@ body {
 }
 div.page {
  position: relative;
- overflow: hidden;
  transform-origin: top left;
  margin: auto;
 }
@@ -39,17 +38,14 @@ div.page > img.page {
  user-select: none;
 }
 div.p {
- position: absolute;
- white-space: nowrap;
 }
 div.p > div, span {
  display: inline;
- position: relative;
+ position: absolute;
  color: transparent;
  white-space: nowrap;
  line-height: 1;
  transform-origin: left center;
- vertical-align: top;
 }
 @media (prefers-color-scheme: dark) {
  div.page { filter: invert(); }
@@ -61,66 +57,48 @@ div.p, div.p > div, span {
  font-kerning: none;
 }
 </style>
-<script type="application/javascript">
+<script type="application/javascript" class="pragma-once">
 // <![CDATA[
-if (!globalThis._userAgentDetectionIsDone) {
-globalThis._userAgentDetectionIsDone = true;
-(() => {
-  const ua = navigator.userAgent;
-  if (ua.includes('Firefox')) { console.log('user agent is Firefox'); globalThis._userAgentIsFirefox = true; return; }
-  if (ua.includes('Edg')) { console.log('user agent is Edge'); globalThis._userAgentIsEdge = true; return; }
-  if (ua.includes('Chrome')) { console.log('user agent is Chrome'); globalThis._userAgentIsChrome = true; return; }
-  if (ua.includes('Safari')) { console.log('user agent is Safari'); globalThis._userAgentIsSafari = true; return; }
-})();
-}
-if (!globalThis._DOMContentLoadedEventListenerIsAdded) {
-globalThis._DOMContentLoadedEventListenerIsAdded = true;
-document.addEventListener('DOMContentLoaded', () => {
-  if (globalThis._userAgentIsFirefox) {
-    console.log('removing &nbsp; after words to fix clipboard text');
-    for (const span of document.querySelectorAll('span')) {
-      if (span.innerHTML.slice(-6) != '&nbsp;') continue;
-      span.innerHTML = span.innerHTML.slice(0, -6);
-    }
-  }
-});
-}
+function makeRelativeSpans(e=1,t=1){let l=.6,n=parseFloat,i="textContent";for(let o of document.querySelectorAll("div.p")){let s=o.style,r=0,a=0;s.position="absolute",s.whiteSpace="nowrap";let p=n(s.fontSize||16)*l,c=n(s.left||0),f=n(s.top||0),h=o.querySelectorAll("span"),m=h.length-1;for(let o=0;o<h.length;o++){let s=h[o],u=h[o+1];if(null==s)continue;let S=s.innerHTML.startsWith("<br"),g=u?.innerHTML.startsWith("<br"),y=s.style,d=n(y.left||0)-c,v=n(y.top||0)-f,W=n(y.fontSize||16),x=y.transform?.match(/scaleX\(([^)]+)\)/),b=x?n(x[1]):1,z=s[i].length;s[i].endsWith("\xa0")&&(s[i]=s[i].slice(0,-1),z--);let A=0;if(g&&o<m-1&&e){let e=h[o+2];if(s[i].endsWith("-")&&" "!=s[i].slice(-2,-1)){let r=e[i];r.endsWith("\xa0")&&(r=r.slice(0,-1)),s[i]=s[i].slice(0,-1)+(t?"\xad":"")+r,z=z-1+r.length;let a=n(e.style.fontSize||16),c=e.style.transform?.match(/scaleX\(([^)]+)\)/),f=c?n(c[1]):1;A=a*l*r.length*f+p,e.remove(),h[o+2]=null}}let q=W*l*z,w=q*b,H=(w-q)/z;y.letterSpacing=H+"px";let L=d-r,M=v-a;y.position="relative",y.verticalAlign="top",y.display="inline",y.left=L+"px",y.top=M+"px",r+=w+p,A&&(r-=A,A=0),S&&o<m&&(e?s.remove():(r=0,a+=W))}}}
+let joinLines = 1;
+let addSoftHyphens = 1;
+document.addEventListener('DOMContentLoaded', () => makeRelativeSpans(joinLines, addSoftHyphens));
 // ]]>
 </script>
 </head>
 <body>
 <div class="page" id="page-0159" style="width: 3383px; height: 5083px">
 <img class="page" alt="" src="images/0159.avif" style="width: 3383px; height: 5083px"/>
-<div class="p" style="left:990.0px;top:1012.0px;font-size:16px">
-<span style="left:0.0px;top:2.0px;font-size:70.0px;letter-spacing:28.8564453125px">WAS</span>
-<span style="left:27.3671875px;top:2.0px;font-size:70.0px;letter-spacing:22.713588169642858px">BRAUCHT</span>
-<span style="left:50.734375px;top:3.0px;font-size:68.0px;letter-spacing:8.393880208333334px">DIE</span>
-<span style="left:78.1015625px;top:0.0px;font-size:72.0px;letter-spacing:18.319010416666668px">NATUR?</span><span style="left:78.1015625px;font-size:10px"><br/><br/></span>
+<div class="p" style="left:990px;top:1012px;font-size:16px">
+<span style="left:990px;top:1014px;font-size:70px;transform:scaleX(1.6847178774186073)">WAS</span>
+<span style="left:1240px;top:1014px;font-size:70px;transform:scaleX(1.538957578165086)">BRAUCHT</span>
+<span style="left:1727px;top:1015px;font-size:68px;transform:scaleX(1.2050315665601197)">DIE</span>
+<span style="left:1912px;top:1012px;font-size:72px;transform:scaleX(1.4226067105223634)">NATUR?</span><span style="left:78.1015625px;font-size:10px"><br/><br/></span>
 </div>
-<div class="p" style="left:623.0px;top:1373.0px;font-size:16px">
-<span style="left:1.0px;top:0.0px;font-size:61.0px;letter-spacing:-3.72509765625px">Industrielle</span>
-<span style="left:36.3671875px;top:0.0px;font-size:80.0px;letter-spacing:-10.073153409090908px">Technologie</span>
-<span style="left:71.734375px;top:2.0px;font-size:58.0px;letter-spacing:-9.252278645833334px">ist</span>
-<span style="left:107.1015625px;top:0.0px;font-size:61.0px;letter-spacing:4.27490234375px">ihrem</span>
-<span style="left:139.46875px;top:5.0px;font-size:56.0px;letter-spacing:10.68515625px">Wesen</span>
-<span style="left:175.8359375px;top:1.0px;font-size:60.0px;letter-spacing:4.876953125px">nach</span>
-<span style="left:211.203125px;top:1.0px;font-size:61.0px;letter-spacing:1.7034737723214286px">ausbeu-</span><span style="left:211.203125px;font-size:118.0px"><br/></span>
-<span style="left:0.0px;top:0.0px;font-size:60.0px;letter-spacing:-3.5516183035714284px">terisch</span>
-<span style="left:13.3671875px;top:0.0px;font-size:60.0px;letter-spacing:9.543619791666666px">und</span>
-<span style="left:25.734375px;top:9.0px;font-size:51.0px;letter-spacing:2.17041015625px">zerstört</span>
-<span style="left:39.1015625px;top:0.0px;font-size:60.0px;letter-spacing:0.5436197916666666px">das</span>
-<span style="left:51.46875px;top:0.0px;font-size:69.0px;letter-spacing:-7.208170572916667px">Material,</span>
-<span style="left:63.8359375px;top:0.0px;font-size:60.0px;letter-spacing:0.5436197916666666px">das</span>
-<span style="left:78.203125px;top:0.0px;font-size:80.0px;letter-spacing:-7.275173611111111px">notwendig</span>
-<span style="left:90.5703125px;top:2.0px;font-size:67.0px;letter-spacing:-16.33740234375px">ist,</span>
-<span style="left:102.9375px;top:22.0px;font-size:38.0px;letter-spacing:34.1220703125px">um</span>
-<span style="left:117.3046875px;top:3.0px;font-size:58.0px;letter-spacing:-6.585611979166667px">sie</span><span style="left:117.3046875px;font-size:116.0px"><br/></span>
-<span style="left:0.0px;top:0.0px;font-size:61.0px;letter-spacing:-1.461939761513158px">aufrechtzuerhalten.</span><span style="left:0.0px;font-size:10px"><br/><br/></span>
+<div class="p" style="left:623px;top:1373px;font-size:16px">
+<span style="left:624px;top:1373px;font-size:61px;transform:scaleX(0.8985680666905987)">Industrielle</span>
+<span style="left:1065px;top:1373px;font-size:80px;transform:scaleX(0.7908574799085748)">Technologie</span>
+<span style="left:1529px;top:1375px;font-size:58px;transform:scaleX(0.7350355641319649)">ist</span>
+<span style="left:1651px;top:1373px;font-size:61px;transform:scaleX(1.1164027495246833)">ihrem</span>
+<span style="left:1898px;top:1378px;font-size:56px;transform:scaleX(1.3169273548835592)">Wesen</span>
+<span style="left:2166px;top:1374px;font-size:60px;transform:scaleX(1.1350094620167612)">nach</span>
+<span style="left:2375px;top:1374px;font-size:61px;transform:scaleX(1.0463844586137274)">ausbeu-</span><span style="left:211.203125px;font-size:118px"><br/></span>
+<span style="left:623px;top:1491px;font-size:60px;transform:scaleX(0.9016799907310855)">terisch</span>
+<span style="left:874px;top:1491px;font-size:60px;transform:scaleX(1.2641975308641975)">und</span>
+<span style="left:1033px;top:1500px;font-size:51px;transform:scaleX(1.0706868310990252)">zerstört</span>
+<span style="left:1319px;top:1491px;font-size:60px;transform:scaleX(1.0150491123727134)">das</span>
+<span style="left:1451px;top:1491px;font-size:69px;transform:scaleX(0.8264826764773873)">Material,</span>
+<span style="left:1782px;top:1491px;font-size:60px;transform:scaleX(1.0150491123727134)">das</span>
+<span style="left:1916px;top:1491px;font-size:80px;transform:scaleX(0.8489501667117239)">notwendig</span>
+<span style="left:2306px;top:1493px;font-size:67px;transform:scaleX(0.5949812978901114)">ist,</span>
+<span style="left:2424px;top:1513px;font-size:38px;transform:scaleX(2.491484184914842)">um</span>
+<span style="left:2562px;top:1494px;font-size:58px;transform:scaleX(0.8114028954703508)">sie</span><span style="left:117.3046875px;font-size:116px"><br/></span>
+<span style="left:623px;top:1607px;font-size:61px;transform:scaleX(0.9601923519660306)">aufrechtzuerhalten.</span><span style="left:0px;font-size:10px"><br/><br/></span>
 </div>
-<div class="p" style="left:1295.0px;top:1724.0px;font-size:16px">
-<span style="left:0.0px;top:0.0px;font-size:61.0px;letter-spacing:1.27490234375px">Richard</span>
-<span style="left:12.3671875px;top:4.0px;font-size:57.0px;letter-spacing:-9.31689453125px">T.</span>
-<span style="left:26.734375px;top:3.0px;font-size:58.0px;letter-spacing:-0.030056423611111112px">LaPiere<sup>51</sup></span><span style="left:26.734375px;font-size:10px"><br/><br/><br/><br/></span>
+<div class="p" style="left:1295px;top:1724px;font-size:16px">
+<span style="left:1295px;top:1724px;font-size:61px;transform:scaleX(1.0347147434619015)">Richard</span>
+<span style="left:1583px;top:1728px;font-size:57px;transform:scaleX(0.7285041476359186)">T.</span>
+<span style="left:1657px;top:1727px;font-size:58px;transform:scaleX(0.9991392516772163)">LaPiere<sup>51</sup></span><span style="left:26.734375px;font-size:10px"><br/><br/><br/><br/></span>
 </div>
 </div>
 </body>

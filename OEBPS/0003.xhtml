@@ -27,7 +27,6 @@ body {
 }
 div.page {
  position: relative;
- overflow: hidden;
  transform-origin: top left;
  margin: auto;
 }
@@ -39,17 +38,14 @@ div.page > img.page {
  user-select: none;
 }
 div.p {
- position: absolute;
- white-space: nowrap;
 }
 div.p > div, span {
  display: inline;
- position: relative;
+ position: absolute;
  color: transparent;
  white-space: nowrap;
  line-height: 1;
  transform-origin: left center;
- vertical-align: top;
 }
 @media (prefers-color-scheme: dark) {
  div.page { filter: invert(); }
@@ -61,64 +57,46 @@ div.p, div.p > div, span {
  font-kerning: none;
 }
 </style>
-<script type="application/javascript">
+<script type="application/javascript" class="pragma-once">
 // <![CDATA[
-if (!globalThis._userAgentDetectionIsDone) {
-globalThis._userAgentDetectionIsDone = true;
-(() => {
-  const ua = navigator.userAgent;
-  if (ua.includes('Firefox')) { console.log('user agent is Firefox'); globalThis._userAgentIsFirefox = true; return; }
-  if (ua.includes('Edg')) { console.log('user agent is Edge'); globalThis._userAgentIsEdge = true; return; }
-  if (ua.includes('Chrome')) { console.log('user agent is Chrome'); globalThis._userAgentIsChrome = true; return; }
-  if (ua.includes('Safari')) { console.log('user agent is Safari'); globalThis._userAgentIsSafari = true; return; }
-})();
-}
-if (!globalThis._DOMContentLoadedEventListenerIsAdded) {
-globalThis._DOMContentLoadedEventListenerIsAdded = true;
-document.addEventListener('DOMContentLoaded', () => {
-  if (globalThis._userAgentIsFirefox) {
-    console.log('removing &nbsp; after words to fix clipboard text');
-    for (const span of document.querySelectorAll('span')) {
-      if (span.innerHTML.slice(-6) != '&nbsp;') continue;
-      span.innerHTML = span.innerHTML.slice(0, -6);
-    }
-  }
-});
-}
+function makeRelativeSpans(e=1,t=1){let l=.6,n=parseFloat,i="textContent";for(let o of document.querySelectorAll("div.p")){let s=o.style,r=0,a=0;s.position="absolute",s.whiteSpace="nowrap";let p=n(s.fontSize||16)*l,c=n(s.left||0),f=n(s.top||0),h=o.querySelectorAll("span"),m=h.length-1;for(let o=0;o<h.length;o++){let s=h[o],u=h[o+1];if(null==s)continue;let S=s.innerHTML.startsWith("<br"),g=u?.innerHTML.startsWith("<br"),y=s.style,d=n(y.left||0)-c,v=n(y.top||0)-f,W=n(y.fontSize||16),x=y.transform?.match(/scaleX\(([^)]+)\)/),b=x?n(x[1]):1,z=s[i].length;s[i].endsWith("\xa0")&&(s[i]=s[i].slice(0,-1),z--);let A=0;if(g&&o<m-1&&e){let e=h[o+2];if(s[i].endsWith("-")&&" "!=s[i].slice(-2,-1)){let r=e[i];r.endsWith("\xa0")&&(r=r.slice(0,-1)),s[i]=s[i].slice(0,-1)+(t?"\xad":"")+r,z=z-1+r.length;let a=n(e.style.fontSize||16),c=e.style.transform?.match(/scaleX\(([^)]+)\)/),f=c?n(c[1]):1;A=a*l*r.length*f+p,e.remove(),h[o+2]=null}}let q=W*l*z,w=q*b,H=(w-q)/z;y.letterSpacing=H+"px";let L=d-r,M=v-a;y.position="relative",y.verticalAlign="top",y.display="inline",y.left=L+"px",y.top=M+"px",r+=w+p,A&&(r-=A,A=0),S&&o<m&&(e?s.remove():(r=0,a+=W))}}}
+let joinLines = 1;
+let addSoftHyphens = 1;
+document.addEventListener('DOMContentLoaded', () => makeRelativeSpans(joinLines, addSoftHyphens));
 // ]]>
 </script>
 </head>
 <body>
 <div class="page" id="page-0003" style="width: 3402px; height: 5104px">
 <img class="page" alt="" src="images/0003.avif" style="width: 3402px; height: 5104px"/>
-<div class="p" style="left:1153.0px;top:739.0px;font-size:16px">
-<span style="left:0.0px;top:0.0px;font-size:96.0px;letter-spacing:57.060267857142854px">Derrick</span>
-<span style="left:146.3671875px;top:4.0px;font-size:114.0px;letter-spacing:48.532877604166664px">Jensen</span><span style="left:146.3671875px;font-size:10px"><br/><br/></span>
+<div class="p" style="left:1153px;top:739px;font-size:16px">
+<span style="left:1153px;top:739px;font-size:96px;transform:scaleX(1.9872552427296952)">Derrick</span>
+<span style="left:2113px;top:743px;font-size:114px;transform:scaleX(1.7071280526268362)">Jensen</span><span style="left:146.3671875px;font-size:10px"><br/><br/></span>
 </div>
-<div class="p" style="left:574.0px;top:1150.0px;font-size:16px">
-<span style="left:0.0px;top:0.0px;font-size:376.0px;letter-spacing:14.343191964285714px">Endgame</span><span style="left:0.0px;font-size:10px"><br/><br/></span>
+<div class="p" style="left:574px;top:1150px;font-size:16px">
+<span style="left:574px;top:1150px;font-size:376px;transform:scaleX(1.0633614112415168)">Endgame</span><span style="left:0px;font-size:10px"><br/><br/></span>
 </div>
-<div class="p" style="left:547.0px;top:2062.0px;font-size:16px">
-<span style="left:0.0px;top:0.0px;font-size:76.0px;letter-spacing:32.494140625px">ZIVILISATION</span><span style="left:0.0px;font-size:135.0px"><br/></span>
-<span style="left:303.0px;top:0.0px;font-size:75.0px;letter-spacing:29.84619140625px">ALS</span>
-<span style="left:389.3671875px;top:0.0px;font-size:75.0px;letter-spacing:43.84619140625px">PROBLEM</span><span style="left:389.3671875px;font-size:10px"><br/><br/></span>
+<div class="p" style="left:547px;top:2062px;font-size:16px">
+<span style="left:547px;top:2062px;font-size:76px;transform:scaleX(1.710163486575319)">ZIVILISATION</span><span style="left:0px;font-size:135px"><br/></span>
+<span style="left:850px;top:2197px;font-size:75px;transform:scaleX(1.6609894566098946)">ALS</span>
+<span style="left:1171px;top:2197px;font-size:75px;transform:scaleX(1.9710408218437416)">PROBLEM</span><span style="left:389.3671875px;font-size:10px"><br/><br/></span>
 </div>
-<div class="p" style="left:1157.0px;top:2529.0px;font-size:16px">
-<span style="left:0.0px;top:4.0px;font-size:62.0px;letter-spacing:9.339518229166666px">Aus</span>
-<span style="left:19.3671875px;top:0.0px;font-size:66.0px;letter-spacing:17.931315104166668px">dem</span>
-<span style="left:38.734375px;top:0.0px;font-size:66.0px;letter-spacing:5.193219866071429px">Amerikanischen</span><span style="left:38.734375px;font-size:136.0px"><br/></span>
-<span style="left:1.0px;top:0.0px;font-size:46.0px;letter-spacing:19.638997395833332px">von</span>
-<span style="left:28.3671875px;top:-19.0px;font-size:65.0px;letter-spacing:7.033365885416667px">Marion</span>
-<span style="left:52.734375px;top:-21.0px;font-size:66.0px;letter-spacing:4.597981770833333px">Schweizer</span><span style="left:52.734375px;font-size:100.0px"><br/></span>
-<span style="left:6.0px;top:0.0px;font-size:65.0px;letter-spacing:9.86669921875px">und</span>
-<span style="left:25.3671875px;top:0.0px;font-size:65.0px;letter-spacing:13.700032552083334px">Thomas</span>
-<span style="left:47.734375px;top:-1.0px;font-size:66.0px;letter-spacing:-5.9853515625px">Pfeiffer</span><span style="left:47.734375px;font-size:10px"><br/><br/></span>
+<div class="p" style="left:1157px;top:2529px;font-size:16px">
+<span style="left:1157px;top:2533px;font-size:62px;transform:scaleX(1.2502071178784153)">Aus</span>
+<span style="left:1326px;top:2529px;font-size:66px;transform:scaleX(1.4512685656237967)">dem</span>
+<span style="left:1528px;top:2529px;font-size:66px;transform:scaleX(1.1306952036879045)">Amerikanischen</span><span style="left:38.734375px;font-size:136px"><br/></span>
+<span style="left:1158px;top:2669px;font-size:46px;transform:scaleX(1.7091340785406162)">von</span>
+<span style="left:1337px;top:2650px;font-size:65px;transform:scaleX(1.1797284089254891)">Marion</span>
+<span style="left:1648px;top:2648px;font-size:66px;transform:scaleX(1.1157151400460403)">Schweizer</span><span style="left:52.734375px;font-size:100px"><br/></span>
+<span style="left:1163px;top:2769px;font-size:65px;transform:scaleX(1.252130513444382)">und</span>
+<span style="left:1339px;top:2769px;font-size:65px;transform:scaleX(1.3500863019111193)">Thomas</span>
+<span style="left:1688px;top:2768px;font-size:66px;transform:scaleX(0.8493696084936961)">Pfeiffer</span><span style="left:47.734375px;font-size:10px"><br/><br/></span>
 </div>
-<div class="p" style="left:1157.0px;top:4427.0px;font-size:16px">
-<span style="left:0.0px;top:0.0px;font-size:63.0px;letter-spacing:29.07080078125px">Pendo</span>
-<span style="left:43.3671875px;top:2.0px;font-size:60.0px;letter-spacing:11.591238839285714px">München</span>
-<span style="left:56.734375px;top:3.0px;font-size:59.0px;letter-spacing:10.145670572916666px">und</span>
-<span style="left:68.1015625px;top:4.0px;font-size:59.0px;letter-spacing:3.3123372395833335px">Zürich</span><span style="left:68.1015625px;font-size:10px"><br/><br/><br/><br/></span>
+<div class="p" style="left:1157px;top:4427px;font-size:16px">
+<span style="left:1157px;top:4427px;font-size:63px;transform:scaleX(1.766449104648618)">Pendo</span>
+<span style="left:1545px;top:4429px;font-size:60px;transform:scaleX(1.3208820916850113)">München</span>
+<span style="left:1902px;top:4430px;font-size:59px;transform:scaleX(1.2856246076585058)">und</span>
+<span style="left:2060px;top:4431px;font-size:59px;transform:scaleX(1.0932501225709192)">Zürich</span><span style="left:68.1015625px;font-size:10px"><br/><br/><br/><br/></span>
 </div>
 </div>
 </body>

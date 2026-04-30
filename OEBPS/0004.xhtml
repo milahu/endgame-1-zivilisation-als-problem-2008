@@ -27,7 +27,6 @@ body {
 }
 div.page {
  position: relative;
- overflow: hidden;
  transform-origin: top left;
  margin: auto;
 }
@@ -39,17 +38,14 @@ div.page > img.page {
  user-select: none;
 }
 div.p {
- position: absolute;
- white-space: nowrap;
 }
 div.p > div, span {
  display: inline;
- position: relative;
+ position: absolute;
  color: transparent;
  white-space: nowrap;
  line-height: 1;
  transform-origin: left center;
- vertical-align: top;
 }
 @media (prefers-color-scheme: dark) {
  div.page { filter: invert(); }
@@ -61,169 +57,151 @@ div.p, div.p > div, span {
  font-kerning: none;
 }
 </style>
-<script type="application/javascript">
+<script type="application/javascript" class="pragma-once">
 // <![CDATA[
-if (!globalThis._userAgentDetectionIsDone) {
-globalThis._userAgentDetectionIsDone = true;
-(() => {
-  const ua = navigator.userAgent;
-  if (ua.includes('Firefox')) { console.log('user agent is Firefox'); globalThis._userAgentIsFirefox = true; return; }
-  if (ua.includes('Edg')) { console.log('user agent is Edge'); globalThis._userAgentIsEdge = true; return; }
-  if (ua.includes('Chrome')) { console.log('user agent is Chrome'); globalThis._userAgentIsChrome = true; return; }
-  if (ua.includes('Safari')) { console.log('user agent is Safari'); globalThis._userAgentIsSafari = true; return; }
-})();
-}
-if (!globalThis._DOMContentLoadedEventListenerIsAdded) {
-globalThis._DOMContentLoadedEventListenerIsAdded = true;
-document.addEventListener('DOMContentLoaded', () => {
-  if (globalThis._userAgentIsFirefox) {
-    console.log('removing &nbsp; after words to fix clipboard text');
-    for (const span of document.querySelectorAll('span')) {
-      if (span.innerHTML.slice(-6) != '&nbsp;') continue;
-      span.innerHTML = span.innerHTML.slice(0, -6);
-    }
-  }
-});
-}
+function makeRelativeSpans(e=1,t=1){let l=.6,n=parseFloat,i="textContent";for(let o of document.querySelectorAll("div.p")){let s=o.style,r=0,a=0;s.position="absolute",s.whiteSpace="nowrap";let p=n(s.fontSize||16)*l,c=n(s.left||0),f=n(s.top||0),h=o.querySelectorAll("span"),m=h.length-1;for(let o=0;o<h.length;o++){let s=h[o],u=h[o+1];if(null==s)continue;let S=s.innerHTML.startsWith("<br"),g=u?.innerHTML.startsWith("<br"),y=s.style,d=n(y.left||0)-c,v=n(y.top||0)-f,W=n(y.fontSize||16),x=y.transform?.match(/scaleX\(([^)]+)\)/),b=x?n(x[1]):1,z=s[i].length;s[i].endsWith("\xa0")&&(s[i]=s[i].slice(0,-1),z--);let A=0;if(g&&o<m-1&&e){let e=h[o+2];if(s[i].endsWith("-")&&" "!=s[i].slice(-2,-1)){let r=e[i];r.endsWith("\xa0")&&(r=r.slice(0,-1)),s[i]=s[i].slice(0,-1)+(t?"\xad":"")+r,z=z-1+r.length;let a=n(e.style.fontSize||16),c=e.style.transform?.match(/scaleX\(([^)]+)\)/),f=c?n(c[1]):1;A=a*l*r.length*f+p,e.remove(),h[o+2]=null}}let q=W*l*z,w=q*b,H=(w-q)/z;y.letterSpacing=H+"px";let L=d-r,M=v-a;y.position="relative",y.verticalAlign="top",y.display="inline",y.left=L+"px",y.top=M+"px",r+=w+p,A&&(r-=A,A=0),S&&o<m&&(e?s.remove():(r=0,a+=W))}}}
+let joinLines = 1;
+let addSoftHyphens = 1;
+document.addEventListener('DOMContentLoaded', () => makeRelativeSpans(joinLines, addSoftHyphens));
 // ]]>
 </script>
 </head>
 <body>
 <div class="page" id="page-0004" style="width: 3383px; height: 5078px">
 <img class="page" alt="" src="images/0004.avif" style="width: 3383px; height: 5078px"/>
-<div class="p" style="left:471.0px;top:1003.0px;font-size:16px">
-<span style="left:0.0px;top:1.0px;font-size:50.0px;letter-spacing:3.8974609375px">Die</span>
-<span style="left:9.3671875px;top:0.0px;font-size:68.0px;letter-spacing:-8.672786458333333px">Originalausgabe</span>
-<span style="left:18.734375px;top:0.0px;font-size:52.0px;letter-spacing:-0.931640625px">erschien</span>
-<span style="left:29.1015625px;top:5.0px;font-size:47.0px;letter-spacing:6.45361328125px">2006</span>
-<span style="left:39.46875px;top:11.0px;font-size:42.0px;letter-spacing:6.5138671875px">unter</span>
-<span style="left:48.8359375px;top:1.0px;font-size:52.0px;letter-spacing:11.026692708333334px">dem</span>
-<span style="left:57.203125px;top:2.0px;font-size:51.0px;letter-spacing:-3.90458984375px">Titel</span>
-<span style="left:68.5703125px;top:2.0px;font-size:68.0px;letter-spacing:-4.939453125px">»Endgame.</span>
-<span style="left:72.9375px;top:3.0px;font-size:51.0px;letter-spacing:7.962076822916667px">Volume</span>
-<span style="left:82.3046875px;top:6.0px;font-size:48.0px;letter-spacing:-10.8984375px">I.</span>
-<span style="left:90.671875px;top:3.0px;font-size:52.0px;letter-spacing:6.693359375px">The</span>
-<span style="left:100.0390625px;top:4.0px;font-size:51.0px;letter-spacing:5.29541015625px">Problem</span><span style="left:100.0390625px;font-size:93.0px"><br/></span>
-<span style="left:0.0px;top:0.0px;font-size:52.0px;letter-spacing:1.193359375px">of</span>
-<span style="left:3.3671875px;top:0.0px;font-size:52.0px;letter-spacing:-2.537409855769231px">Civilization«</span>
-<span style="left:12.734375px;top:1.0px;font-size:51.0px;letter-spacing:-1.0379231770833333px">bei</span>
-<span style="left:21.1015625px;top:3.0px;font-size:49.0px;letter-spacing:4.29951171875px">Seven</span>
-<span style="left:31.46875px;top:3.0px;font-size:50.0px;letter-spacing:-1.9596819196428572px">Stories</span>
-<span style="left:41.8359375px;top:5.0px;font-size:56.0px;letter-spacing:-6.21484375px">Press,</span>
-<span style="left:48.203125px;top:5.0px;font-size:48.0px;letter-spacing:16.1015625px">New</span>
-<span style="left:49.5703125px;top:2.0px;font-size:52.0px;letter-spacing:-0.706640625px">York.</span><span style="left:49.5703125px;font-size:10px"><br/><br/></span>
+<div class="p" style="left:471px;top:1003px;font-size:16px">
+<span style="left:471px;top:1004px;font-size:50px;transform:scaleX(1.1294728304947281)">Die</span>
+<span style="left:592px;top:1003px;font-size:68px;transform:scaleX(0.7881557813717539)">Originalausgabe</span>
+<span style="left:1095px;top:1003px;font-size:52px;transform:scaleX(0.9702414373947221)">erschien</span>
+<span style="left:1358px;top:1008px;font-size:47px;transform:scaleX(1.228071991855188)">2006</span>
+<span style="left:1517px;top:1014px;font-size:42px;transform:scaleX(1.2576063028617774)">unter</span>
+<span style="left:1695px;top:1004px;font-size:52px;transform:scaleX(1.3522157755734396)">dem</span>
+<span style="left:1840px;top:1005px;font-size:51px;transform:scaleX(0.8728336752381406)">Titel</span>
+<span style="left:1995px;top:1005px;font-size:68px;transform:scaleX(0.8793473593817089)">»Endgame.</span>
+<span style="left:2333px;top:1006px;font-size:51px;transform:scaleX(1.2593122677565214)">Volume</span>
+<span style="left:2584px;top:1009px;font-size:48px;transform:scaleX(0.6228710462287105)">I.</span>
+<span style="left:2638px;top:1006px;font-size:52px;transform:scaleX(1.2137999875226153)">The</span>
+<span style="left:2771px;top:1007px;font-size:51px;transform:scaleX(1.1724631458422785)">Problem</span><span style="left:100.0390625px;font-size:93px"><br/></span>
+<span style="left:471px;top:1097px;font-size:52px;transform:scaleX(1.0381184103811842)">of</span>
+<span style="left:549px;top:1097px;font-size:52px;transform:scaleX(0.9189497881244091)">Civilization«</span>
+<span style="left:942px;top:1098px;font-size:51px;transform:scaleX(0.9661964812959517)">bei</span>
+<span style="left:1049px;top:1100px;font-size:49px;transform:scaleX(1.1457437476207029)">Seven</span>
+<span style="left:1238px;top:1100px;font-size:50px;transform:scaleX(0.9348997798632835)">Stories</span>
+<span style="left:1455px;top:1102px;font-size:56px;transform:scaleX(0.8156644652995019)">Press,</span>
+<span style="left:1636px;top:1102px;font-size:48px;transform:scaleX(1.5571776155717763)">New</span>
+<span style="left:1782px;top:1099px;font-size:52px;transform:scaleX(0.9774284110050534)">York.</span><span style="left:49.5703125px;font-size:10px"><br/><br/></span>
 </div>
-<div class="p" style="left:508.0px;top:2505.0px;font-size:16px">
-<span style="left:0.0px;top:197.0px;font-size:51.0px;letter-spacing:27.962076822916668px">FSC</span>
-<span style="left:-23.6328125px;top:0.0px;font-size:30.0px;letter-spacing:14.9384765625px">©</span><span style="left:-23.6328125px;font-size:-158.0px"><br/></span>
-<span style="left:233.0px;top:0.0px;font-size:50.0px;letter-spacing:5.230794270833333px">Mix</span><span style="left:233.0px;font-size:72.0px"><br/></span>
-<span style="left:231.0px;top:0.0px;font-size:34.0px;letter-spacing:-4.008188100961538px">Produktgruppe</span>
-<span style="left:232.3671875px;top:8.0px;font-size:19.0px;letter-spacing:4.56103515625px">aus</span>
-<span style="left:232.734375px;top:0.0px;font-size:27.0px;letter-spacing:-2.4371892755681817px">vorbildlich</span>
-<span style="left:234.1015625px;top:0.0px;font-size:27.0px;letter-spacing:-0.94287109375px">bewirtschafteten</span><span style="left:234.1015625px;font-size:35.0px"><br/></span>
-<span style="left:229.0px;top:0.0px;font-size:26.0px;letter-spacing:1.4895368303571428px">Wäldern</span>
-<span style="left:230.3671875px;top:0.0px;font-size:27.0px;letter-spacing:1.0779622395833333px">und</span>
-<span style="left:230.734375px;top:1.0px;font-size:25.0px;letter-spacing:1.6630161830357142px">anderen</span>
-<span style="left:232.1015625px;top:0.0px;font-size:27.0px;letter-spacing:-2.0410853794642856px">kontrollierten</span>
-<span style="left:233.46875px;top:0.0px;font-size:27.0px;letter-spacing:-0.25537109375px">Herkünften</span><span style="left:233.46875px;font-size:43.0px"><br/></span>
-<span style="left:229.0px;top:0.0px;font-size:33.0px;letter-spacing:-3.594948508522727px">www.fsc.org</span>
-<span style="left:244.3671875px;top:2.0px;font-size:24.0px;letter-spacing:-1.44921875px">Zert.-Nr.</span>
-<span style="left:244.734375px;top:2.0px;font-size:25.0px;letter-spacing:2.44873046875px">GFA-COC-1223</span><span style="left:244.734375px;font-size:37.0px"><br/></span>
-<span style="left:230.0px;top:0.0px;font-size:22.0px;letter-spacing:9.7548828125px">©</span>
-<span style="left:231.3671875px;top:0.0px;font-size:22.0px;letter-spacing:2.2548828125px">1996</span>
-<span style="left:231.734375px;top:0.0px;font-size:22.0px;letter-spacing:-0.2451171875px">Forest</span>
-<span style="left:232.1015625px;top:-1.0px;font-size:29.0px;letter-spacing:-2.9140181107954546px">Stewardship</span>
-<span style="left:231.46875px;top:-1.0px;font-size:23.0px;letter-spacing:-0.41859654017857145px">Council</span><span style="left:231.46875px;font-size:10px"><br/><br/></span>
+<div class="p" style="left:508px;top:2505px;font-size:16px">
+<span style="left:508px;top:2702px;font-size:51px;transform:scaleX(1.9106806821133429)">FSC</span>
+<span style="left:670px;top:2505px;font-size:30px;transform:scaleX(1.827088402270884)">©</span><span style="left:-23.6328125px;font-size:-158px"><br/></span>
+<span style="left:741px;top:2544px;font-size:50px;transform:scaleX(1.1737658826709922)">Mix</span><span style="left:233px;font-size:72px"><br/></span>
+<span style="left:739px;top:2616px;font-size:34px;transform:scaleX(0.8041894654174602)">Produktgruppe</span>
+<span style="left:964px;top:2624px;font-size:19px;transform:scaleX(1.3987279634609637)">aus</span>
+<span style="left:1022px;top:2616px;font-size:27px;transform:scaleX(0.8500686781303165)">vorbildlich</span>
+<span style="left:1185px;top:2616px;font-size:27px;transform:scaleX(0.9419963353458892)">bewirtschafteten</span><span style="left:234.1015625px;font-size:35px"><br/></span>
+<span style="left:737px;top:2651px;font-size:26px;transform:scaleX(1.0951578834790514)">Wäldern</span>
+<span style="left:868px;top:2651px;font-size:27px;transform:scaleX(1.066314219058204)">und</span>
+<span style="left:930px;top:2652px;font-size:25px;transform:scaleX(1.110490093847758)">anderen</span>
+<span style="left:1058px;top:2651px;font-size:27px;transform:scaleX(0.8744362483210821)">kontrollierten</span>
+<span style="left:1268px;top:2651px;font-size:27px;transform:scaleX(0.9842900483614189)">Herkünften</span><span style="left:233.46875px;font-size:43px"><br/></span>
+<span style="left:737px;top:2694px;font-size:33px;transform:scaleX(0.8190554069784329)">www.fsc.org</span>
+<span style="left:941px;top:2696px;font-size:24px;transform:scaleX(0.8997026223303595)">Zert.-Nr.</span>
+<span style="left:1068px;top:2696px;font-size:25px;transform:scaleX(1.162692619626926)">GFA-COC-1223</span><span style="left:244.734375px;font-size:37px"><br/></span>
+<span style="left:738px;top:2731px;font-size:22px;transform:scaleX(1.7364889773648897)">©</span>
+<span style="left:772px;top:2731px;font-size:22px;transform:scaleX(1.1702425717024256)">1996</span>
+<span style="left:844px;top:2731px;font-size:22px;transform:scaleX(0.9814937698149379)">Forest</span>
+<span style="left:932px;top:2730px;font-size:29px;transform:scaleX(0.8330981600551195)">Stewardship</span>
+<span style="left:1101px;top:2730px;font-size:23px;transform:scaleX(0.9697702417473918)">Council</span><span style="left:231.46875px;font-size:10px"><br/><br/></span>
 </div>
-<div class="p" style="left:476.0px;top:2977.0px;font-size:16px">
-<span style="left:0.0px;top:6.0px;font-size:46.0px;letter-spacing:-7.1943359375px">1.</span>
-<span style="left:6.3671875px;top:0.0px;font-size:69.0px;letter-spacing:-9.54150390625px">Auflage</span>
-<span style="left:14.734375px;top:5.0px;font-size:48.0px;letter-spacing:5.6015625px">2008</span><span style="left:14.734375px;font-size:10px"><br/><br/></span>
+<div class="p" style="left:476px;top:2977px;font-size:16px">
+<span style="left:476px;top:2983px;font-size:46px;transform:scaleX(0.7402235621848443)">1.</span>
+<span style="left:533px;top:2977px;font-size:69px;transform:scaleX(0.7703139508915452)">Auflage</span>
+<span style="left:775px;top:2982px;font-size:48px;transform:scaleX(1.1938361719383617)">2008</span><span style="left:14.734375px;font-size:10px"><br/><br/></span>
 </div>
-<div class="p" style="left:470.0px;top:3168.0px;font-size:16px">
-<span style="left:0.0px;top:0.0px;font-size:68.0px;letter-spacing:-7.161675347222222px">Copyright</span>
-<span style="left:10.3671875px;top:6.0px;font-size:45.0px;letter-spacing:18.90771484375px">©</span>
-<span style="left:20.734375px;top:5.0px;font-size:47.0px;letter-spacing:6.20361328125px">2006</span>
-<span style="left:29.1015625px;top:0.0px;font-size:67.0px;letter-spacing:-3.83740234375px">by</span>
-<span style="left:34.46875px;top:0.0px;font-size:52.0px;letter-spacing:1.2647879464285714px">Derrick</span>
-<span style="left:41.8359375px;top:4.0px;font-size:56.0px;letter-spacing:-2.0481770833333335px">Jensen</span><span style="left:41.8359375px;font-size:10px"><br/><br/></span>
+<div class="p" style="left:470px;top:3168px;font-size:16px">
+<span style="left:470px;top:3168px;font-size:68px;transform:scaleX(0.8250666581853072)">Copyright</span>
+<span style="left:794px;top:3174px;font-size:45px;transform:scaleX(1.6979003334234477)">©</span>
+<span style="left:860px;top:3173px;font-size:47px;transform:scaleX(1.2192369415540716)">2006</span>
+<span style="left:1016px;top:3168px;font-size:67px;transform:scaleX(0.9048673905412112)">by</span>
+<span style="left:1104px;top:3168px;font-size:52px;transform:scaleX(1.0403999893050988)">Derrick</span>
+<span style="left:1349px;top:3172px;font-size:56px;transform:scaleX(0.9392499903448809)">Jensen</span><span style="left:41.8359375px;font-size:10px"><br/><br/></span>
 </div>
-<div class="p" style="left:470.0px;top:3262.0px;font-size:16px">
-<span style="left:0.0px;top:0.0px;font-size:67.0px;letter-spacing:-6.559624565972222px">Copyright</span>
-<span style="left:9.3671875px;top:0.0px;font-size:51.0px;letter-spacing:-1.70458984375px">für</span>
-<span style="left:16.734375px;top:0.0px;font-size:50.0px;letter-spacing:-1.1025390625px">die</span>
-<span style="left:26.1015625px;top:0.0px;font-size:51.0px;letter-spacing:1.79541015625px">deutsche</span>
-<span style="left:31.46875px;top:0.0px;font-size:67.0px;letter-spacing:-7.46240234375px">Ausgabe:</span><span style="left:31.46875px;font-size:10px"><br/><br/></span>
+<div class="p" style="left:470px;top:3262px;font-size:16px">
+<span style="left:470px;top:3262px;font-size:67px;transform:scaleX(0.8373810859194162)">Copyright</span>
+<span style="left:793px;top:3262px;font-size:51px;transform:scaleX(0.9444842008173909)">für</span>
+<span style="left:897px;top:3262px;font-size:50px;transform:scaleX(0.9633738848337389)">die</span>
+<span style="left:1003px;top:3262px;font-size:51px;transform:scaleX(1.0584736733298348)">deutsche</span>
+<span style="left:1278px;top:3262px;font-size:67px;transform:scaleX(0.8150004236723923)">Ausgabe:</span><span style="left:31.46875px;font-size:10px"><br/><br/></span>
 </div>
-<div class="p" style="left:471.0px;top:3356.0px;font-size:16px">
-<span style="left:0.0px;top:6.0px;font-size:44.0px;letter-spacing:19.509765625px">©</span>
-<span style="left:11.3671875px;top:0.0px;font-size:51.0px;letter-spacing:6.09541015625px">Pendo</span>
-<span style="left:16.734375px;top:0.0px;font-size:68.0px;letter-spacing:-9.939453125px">Verlag</span>
-<span style="left:25.1015625px;top:0.0px;font-size:51.0px;letter-spacing:20.54541015625px">GmbH</span>
-<span style="left:36.46875px;top:3.0px;font-size:48.0px;letter-spacing:20.1015625px">&amp;</span>
-<span style="left:44.8359375px;top:3.0px;font-size:49.0px;letter-spacing:2.1661783854166665px">Co.</span>
-<span style="left:55.203125px;top:3.0px;font-size:49.0px;letter-spacing:16.99951171875px">KG</span><span style="left:55.203125px;font-size:10px"><br/><br/></span>
+<div class="p" style="left:471px;top:3356px;font-size:16px">
+<span style="left:471px;top:3362px;font-size:44px;transform:scaleX(1.7364889773648897)">©</span>
+<span style="left:538px;top:3356px;font-size:51px;transform:scaleX(1.1985178824165514)">Pendo</span>
+<span style="left:737px;top:3356px;font-size:68px;transform:scaleX(0.7572157816898049)">Verlag</span>
+<span style="left:941px;top:3356px;font-size:51px;transform:scaleX(1.6691315617893547)">GmbH</span>
+<span style="left:1167px;top:3359px;font-size:48px;transform:scaleX(1.6955934036226008)">&amp;</span>
+<span style="left:1234px;top:3359px;font-size:49px;transform:scaleX(1.0734285603941494)">Co.</span>
+<span style="left:1349px;top:3359px;font-size:49px;transform:scaleX(1.5762450965787775)">KG</span><span style="left:55.203125px;font-size:10px"><br/><br/></span>
 </div>
-<div class="p" style="left:470.0px;top:3450.0px;font-size:16px">
-<span style="left:0.0px;top:1.0px;font-size:51.0px;letter-spacing:10.438267299107142px">München</span>
-<span style="left:10.3671875px;top:1.0px;font-size:52.0px;letter-spacing:7.360026041666667px">und</span>
-<span style="left:19.734375px;top:0.0px;font-size:52.0px;letter-spacing:2.0266927083333335px">Zürich</span>
-<span style="left:29.1015625px;top:5.0px;font-size:47.0px;letter-spacing:6.20361328125px">2008</span><span style="left:29.1015625px;font-size:10px"><br/><br/></span>
+<div class="p" style="left:470px;top:3450px;font-size:16px">
+<span style="left:470px;top:3451px;font-size:51px;transform:scaleX(1.339957880962604)">München</span>
+<span style="left:778px;top:3451px;font-size:52px;transform:scaleX(1.235094724145819)">und</span>
+<span style="left:913px;top:3450px;font-size:52px;transform:scaleX(1.0647368311601888)">Zürich</span>
+<span style="left:1132px;top:3455px;font-size:47px;transform:scaleX(1.2192369415540716)">2008</span><span style="left:29.1015625px;font-size:10px"><br/><br/></span>
 </div>
-<div class="p" style="left:470.0px;top:3545.0px;font-size:16px">
-<span style="left:0.0px;top:0.0px;font-size:68.0px;letter-spacing:-8.62366365131579px">Umschlaggestaltung:</span>
-<span style="left:11.3671875px;top:4.0px;font-size:63.0px;letter-spacing:2.6263563368055554px">Hauptmann</span>
-<span style="left:21.734375px;top:4.0px;font-size:48.0px;letter-spacing:20.1015625px">&amp;</span>
-<span style="left:29.1015625px;top:2.0px;font-size:65.0px;letter-spacing:-0.88330078125px">Kompanie</span>
-<span style="left:35.46875px;top:0.0px;font-size:68.0px;letter-spacing:-7.554837740384615px">Werbeagentur,</span>
-<span style="left:42.8359375px;top:0.0px;font-size:51.0px;letter-spacing:6.366838727678571px">München-Zürich</span><span style="left:42.8359375px;font-size:105.0px"><br/></span>
-<span style="left:1.0px;top:0.0px;font-size:42.0px;letter-spacing:6.7138671875px">unter</span>
-<span style="left:4.3671875px;top:-10.0px;font-size:68.0px;letter-spacing:-3.039453125px">Verwendung</span>
-<span style="left:11.734375px;top:-9.0px;font-size:50.0px;letter-spacing:-0.5025390625px">einer</span>
-<span style="left:15.1015625px;top:-11.0px;font-size:69.0px;letter-spacing:-9.54150390625px">Vorlage</span>
-<span style="left:21.46875px;top:7.0px;font-size:34.0px;letter-spacing:16.5302734375px">von</span>
-<span style="left:29.8359375px;top:-11.0px;font-size:61.0px;letter-spacing:-10.72509765625px">Julie</span>
-<span style="left:39.203125px;top:-11.0px;font-size:52.0px;letter-spacing:3.493359375px">Burke</span><span style="left:39.203125px;font-size:85.0px"><br/></span>
-<span style="left:2.0px;top:0.0px;font-size:68.0px;letter-spacing:-8.072786458333333px">Coverabbildung:</span>
-<span style="left:13.3671875px;top:4.0px;font-size:48.0px;letter-spacing:5.6015625px">2002</span>
-<span style="left:25.734375px;top:6.0px;font-size:44.0px;letter-spacing:19.509765625px">©</span>
-<span style="left:36.1015625px;top:3.0px;font-size:65.0px;letter-spacing:-10.33330078125px">Jerry</span>
-<span style="left:42.46875px;top:3.0px;font-size:48.0px;letter-spacing:4.6015625px">N.</span>
-<span style="left:51.8359375px;top:0.0px;font-size:52.0px;letter-spacing:6.568359375px">Uelsmann</span><span style="left:51.8359375px;font-size:98.0px"><br/></span>
-<span style="left:2.0px;top:0.0px;font-size:49.0px;letter-spacing:1.2137974330357142px">Gesetzt</span>
-<span style="left:11.3671875px;top:15.0px;font-size:34.0px;letter-spacing:11.196940104166666px">aus</span>
-<span style="left:20.734375px;top:-3.0px;font-size:52.0px;letter-spacing:0.3600260416666667px">der</span>
-<span style="left:29.1015625px;top:-1.0px;font-size:50.0px;letter-spacing:7.064127604166667px">Minion</span>
-<span style="left:45.46875px;top:-1.0px;font-size:57.0px;letter-spacing:-5.5896218039772725px">10,5/14,75°</span><span style="left:45.46875px;font-size:10px"><br/><br/></span>
+<div class="p" style="left:470px;top:3545px;font-size:16px">
+<span style="left:470px;top:3545px;font-size:68px;transform:scaleX(0.7893556705560955)">Umschlaggestaltung:</span>
+<span style="left:1105px;top:3549px;font-size:63px;transform:scaleX(1.0692436537259462)">Hauptmann</span>
+<span style="left:1490px;top:3549px;font-size:48px;transform:scaleX(1.6955934036226008)">&amp;</span>
+<span style="left:1556px;top:3547px;font-size:65px;transform:scaleX(0.9774284110050534)">Kompanie</span>
+<span style="left:1878px;top:3545px;font-size:68px;transform:scaleX(0.8154631495120975)">Werbeagentur,</span>
+<span style="left:2329px;top:3545px;font-size:51px;transform:scaleX(1.2073578823256796)">München-Zürich</span><span style="left:42.8359375px;font-size:105px"><br/></span>
+<span style="left:471px;top:3650px;font-size:42px;transform:scaleX(1.2655157764646814)">unter</span>
+<span style="left:644px;top:3640px;font-size:68px;transform:scaleX(0.9257573589046324)">Verwendung</span>
+<span style="left:1040px;top:3641px;font-size:50px;transform:scaleX(0.9833057583130576)">einer</span>
+<span style="left:1201px;top:3639px;font-size:69px;transform:scaleX(0.7703139508915452)">Vorlage</span>
+<span style="left:1441px;top:3657px;font-size:34px;transform:scaleX(1.8075473498401795)">von</span>
+<span style="left:1570px;top:3639px;font-size:61px;transform:scaleX(0.7079627192107748)">Julie</span>
+<span style="left:1719px;top:3639px;font-size:52px;transform:scaleX(1.111585251731237)">Burke</span><span style="left:39.203125px;font-size:85px"><br/></span>
+<span style="left:472px;top:3735px;font-size:68px;transform:scaleX(0.8028115706947824)">Coverabbildung:</span>
+<span style="left:986px;top:3739px;font-size:48px;transform:scaleX(1.1938361719383617)">2002</span>
+<span style="left:1146px;top:3741px;font-size:44px;transform:scaleX(1.7364889773648897)">©</span>
+<span style="left:1212px;top:3738px;font-size:65px;transform:scaleX(0.7359460976979225)">Jerry</span>
+<span style="left:1372px;top:3738px;font-size:48px;transform:scaleX(1.1592322249256555)">N.</span>
+<span style="left:1458px;top:3735px;font-size:52px;transform:scaleX(1.2098072244057645)">Uelsmann</span><span style="left:51.8359375px;font-size:98px"><br/></span>
+<span style="left:472px;top:3833px;font-size:49px;transform:scaleX(1.0411449946680098)">Gesetzt</span>
+<span style="left:706px;top:3848px;font-size:34px;transform:scaleX(1.5469999840974509)">aus</span>
+<span style="left:820px;top:3830px;font-size:52px;transform:scaleX(1.0114999896021792)">der</span>
+<span style="left:933px;top:3832px;font-size:50px;transform:scaleX(1.234668829413355)">Minion</span>
+<span style="left:1182px;top:3832px;font-size:57px;transform:scaleX(0.8371174932834556)">10,5/14,75°</span><span style="left:45.46875px;font-size:10px"><br/><br/></span>
 </div>
-<div class="p" style="left:472.0px;top:3925.0px;font-size:16px">
-<span style="left:0.0px;top:3.0px;font-size:49.0px;letter-spacing:-2.70048828125px">Satz:</span>
-<span style="left:11.3671875px;top:4.0px;font-size:48.0px;letter-spacing:1.9765625px">Fotosatz</span>
-<span style="left:15.734375px;top:4.0px;font-size:55.0px;letter-spacing:6.720540364583333px">Amann,</span>
-<span style="left:20.1015625px;top:0.0px;font-size:51.0px;letter-spacing:-0.25004438920454547px">Aichstetten</span><span style="left:20.1015625px;font-size:10px"><br/><br/></span>
+<div class="p" style="left:472px;top:3925px;font-size:16px">
+<span style="left:472px;top:3928px;font-size:49px;transform:scaleX(0.9084595395335751)">Satz:</span>
+<span style="left:627px;top:3929px;font-size:48px;transform:scaleX(1.0683968640173018)">Fotosatz</span>
+<span style="left:888px;top:3929px;font-size:55px;transform:scaleX(1.202959030696257)">Amann,</span>
+<span style="left:1141px;top:3925px;font-size:51px;transform:scaleX(0.9918564491342509)">Aichstetten</span><span style="left:20.1015625px;font-size:10px"><br/><br/></span>
 </div>
-<div class="p" style="left:472.0px;top:4018.0px;font-size:16px">
-<span style="left:0.0px;top:1.0px;font-size:52.0px;letter-spacing:6.493359375px">Druck</span>
-<span style="left:7.3671875px;top:1.0px;font-size:52.0px;letter-spacing:8.026692708333334px">und</span>
-<span style="left:15.734375px;top:1.0px;font-size:68.0px;letter-spacing:-7.189453125px">Bindung:</span>
-<span style="left:27.1015625px;top:4.0px;font-size:49.0px;letter-spacing:7.49951171875px">CPI</span>
-<span style="left:34.46875px;top:33.0px;font-size:5.0px;letter-spacing:34.98974609375px">—</span>
-<span style="left:41.8359375px;top:1.0px;font-size:52.0px;letter-spacing:2.4076450892857144px">Clausen</span>
-<span style="left:52.203125px;top:4.0px;font-size:48.0px;letter-spacing:20.1015625px">&amp;</span>
-<span style="left:60.5703125px;top:4.0px;font-size:55.0px;letter-spacing:-3.4461263020833335px">Bosse,</span>
-<span style="left:71.9375px;top:0.0px;font-size:52.0px;letter-spacing:2.943359375px">Leck</span><span style="left:71.9375px;font-size:95.0px"><br/></span>
-<span style="left:0.0px;top:0.0px;font-size:52.0px;letter-spacing:0.26478794642857145px">Printed</span>
-<span style="left:8.3671875px;top:2.0px;font-size:49.0px;letter-spacing:-1.00048828125px">in</span>
-<span style="left:17.734375px;top:3.0px;font-size:65.0px;letter-spacing:0.43812779017857145px">Germany</span><span style="left:17.734375px;font-size:10px"><br/><br/></span>
+<div class="p" style="left:472px;top:4018px;font-size:16px">
+<span style="left:472px;top:4019px;font-size:52px;transform:scaleX(1.2074115665356542)">Druck</span>
+<span style="left:678px;top:4019px;font-size:52px;transform:scaleX(1.256389460769023)">und</span>
+<span style="left:814px;top:4019px;font-size:68px;transform:scaleX(0.8243881494203521)">Bindung:</span>
+<span style="left:1105px;top:4022px;font-size:49px;transform:scaleX(1.2542165284605327)">CPI</span>
+<span style="left:1233px;top:4051px;font-size:5px;transform:scaleX(12.6235198702352)">—</span>
+<span style="left:1288px;top:4019px;font-size:52px;transform:scaleX(1.076905252087734)">Clausen</span>
+<span style="left:1544px;top:4022px;font-size:48px;transform:scaleX(1.6955934036226008)">&amp;</span>
+<span style="left:1611px;top:4022px;font-size:55px;transform:scaleX(0.8959276462926099)">Bosse,</span>
+<span style="left:1810px;top:4018px;font-size:52px;transform:scaleX(1.094017094017094)">Leck</span><span style="left:71.9375px;font-size:95px"><br/></span>
+<span style="left:472px;top:4114px;font-size:52px;transform:scaleX(1.0084578843702932)">Printed</span>
+<span style="left:711px;top:4116px;font-size:49px;transform:scaleX(0.9660857043547346)">in</span>
+<span style="left:787px;top:4117px;font-size:65px;transform:scaleX(1.0111957790789907)">Germany</span><span style="left:17.734375px;font-size:10px"><br/><br/></span>
 </div>
-<div class="p" style="left:473.0px;top:4212.0px;font-size:16px">
-<span style="left:0.0px;top:0.0px;font-size:48.0px;letter-spacing:10.1015625px">ISBN</span>
-<span style="left:9.3671875px;top:1.0px;font-size:47.0px;letter-spacing:5.350672104779412px">978-3-86612-192-8</span><span style="left:9.3671875px;font-size:10px"><br/><br/></span>
+<div class="p" style="left:473px;top:4212px;font-size:16px">
+<span style="left:473px;top:4212px;font-size:48px;transform:scaleX(1.3495539334955395)">ISBN</span>
+<span style="left:648px;top:4213px;font-size:47px;transform:scaleX(1.1890938287620272)">978-3-86612-192-8</span><span style="left:9.3671875px;font-size:10px"><br/><br/></span>
 </div>
-<div class="p" style="left:471.0px;top:4397.0px;font-size:16px">
-<span style="left:0.0px;top:1.0px;font-size:68.0px;letter-spacing:-4.022786458333333px">www.pendo.de</span>
-<span style="left:25.3671875px;top:28.0px;font-size:8.0px;letter-spacing:4.18359375px">-</span>
-<span style="left:49.734375px;top:0.0px;font-size:67.0px;letter-spacing:-3.5040690104166665px">www.pendo.ch</span><span style="left:49.734375px;font-size:10px"><br/><br/><br/><br/></span>
+<div class="p" style="left:471px;top:4397px;font-size:16px">
+<span style="left:471px;top:4398px;font-size:68px;transform:scaleX(0.9017381486252246)">www.pendo.de</span>
+<span style="left:949px;top:4425px;font-size:8px;transform:scaleX(1.8686131386861313)">-</span>
+<span style="left:992px;top:4397px;font-size:67px;transform:scaleX(0.9131310196785738)">www.pendo.ch</span><span style="left:49.734375px;font-size:10px"><br/><br/><br/><br/></span>
 </div>
 </div>
 </body>

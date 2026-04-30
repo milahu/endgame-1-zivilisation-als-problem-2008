@@ -27,7 +27,6 @@ body {
 }
 div.page {
  position: relative;
- overflow: hidden;
  transform-origin: top left;
  margin: auto;
 }
@@ -39,17 +38,14 @@ div.page > img.page {
  user-select: none;
 }
 div.p {
- position: absolute;
- white-space: nowrap;
 }
 div.p > div, span {
  display: inline;
- position: relative;
+ position: absolute;
  color: transparent;
  white-space: nowrap;
  line-height: 1;
  transform-origin: left center;
- vertical-align: top;
 }
 @media (prefers-color-scheme: dark) {
  div.page { filter: invert(); }
@@ -61,63 +57,45 @@ div.p, div.p > div, span {
  font-kerning: none;
 }
 </style>
-<script type="application/javascript">
+<script type="application/javascript" class="pragma-once">
 // <![CDATA[
-if (!globalThis._userAgentDetectionIsDone) {
-globalThis._userAgentDetectionIsDone = true;
-(() => {
-  const ua = navigator.userAgent;
-  if (ua.includes('Firefox')) { console.log('user agent is Firefox'); globalThis._userAgentIsFirefox = true; return; }
-  if (ua.includes('Edg')) { console.log('user agent is Edge'); globalThis._userAgentIsEdge = true; return; }
-  if (ua.includes('Chrome')) { console.log('user agent is Chrome'); globalThis._userAgentIsChrome = true; return; }
-  if (ua.includes('Safari')) { console.log('user agent is Safari'); globalThis._userAgentIsSafari = true; return; }
-})();
-}
-if (!globalThis._DOMContentLoadedEventListenerIsAdded) {
-globalThis._DOMContentLoadedEventListenerIsAdded = true;
-document.addEventListener('DOMContentLoaded', () => {
-  if (globalThis._userAgentIsFirefox) {
-    console.log('removing &nbsp; after words to fix clipboard text');
-    for (const span of document.querySelectorAll('span')) {
-      if (span.innerHTML.slice(-6) != '&nbsp;') continue;
-      span.innerHTML = span.innerHTML.slice(0, -6);
-    }
-  }
-});
-}
+function makeRelativeSpans(e=1,t=1){let l=.6,n=parseFloat,i="textContent";for(let o of document.querySelectorAll("div.p")){let s=o.style,r=0,a=0;s.position="absolute",s.whiteSpace="nowrap";let p=n(s.fontSize||16)*l,c=n(s.left||0),f=n(s.top||0),h=o.querySelectorAll("span"),m=h.length-1;for(let o=0;o<h.length;o++){let s=h[o],u=h[o+1];if(null==s)continue;let S=s.innerHTML.startsWith("<br"),g=u?.innerHTML.startsWith("<br"),y=s.style,d=n(y.left||0)-c,v=n(y.top||0)-f,W=n(y.fontSize||16),x=y.transform?.match(/scaleX\(([^)]+)\)/),b=x?n(x[1]):1,z=s[i].length;s[i].endsWith("\xa0")&&(s[i]=s[i].slice(0,-1),z--);let A=0;if(g&&o<m-1&&e){let e=h[o+2];if(s[i].endsWith("-")&&" "!=s[i].slice(-2,-1)){let r=e[i];r.endsWith("\xa0")&&(r=r.slice(0,-1)),s[i]=s[i].slice(0,-1)+(t?"\xad":"")+r,z=z-1+r.length;let a=n(e.style.fontSize||16),c=e.style.transform?.match(/scaleX\(([^)]+)\)/),f=c?n(c[1]):1;A=a*l*r.length*f+p,e.remove(),h[o+2]=null}}let q=W*l*z,w=q*b,H=(w-q)/z;y.letterSpacing=H+"px";let L=d-r,M=v-a;y.position="relative",y.verticalAlign="top",y.display="inline",y.left=L+"px",y.top=M+"px",r+=w+p,A&&(r-=A,A=0),S&&o<m&&(e?s.remove():(r=0,a+=W))}}}
+let joinLines = 1;
+let addSoftHyphens = 1;
+document.addEventListener('DOMContentLoaded', () => makeRelativeSpans(joinLines, addSoftHyphens));
 // ]]>
 </script>
 </head>
 <body>
 <div class="page" id="page-0067" style="width: 3386px; height: 5089px">
 <img class="page" alt="" src="images/0067.avif" style="width: 3386px; height: 5089px"/>
-<div class="p" style="left:1430.0px;top:1026.0px;font-size:16px">
-<span style="left:0.0px;top:0.0px;font-size:70.0px;letter-spacing:23.689778645833332px">GEWALT</span><span style="left:0.0px;font-size:10px"><br/><br/></span>
+<div class="p" style="left:1430px;top:1026px;font-size:16px">
+<span style="left:1430px;top:1026px;font-size:70px;transform:scaleX(1.5621210365735914)">GEWALT</span><span style="left:0px;font-size:10px"><br/><br/></span>
 </div>
-<div class="p" style="left:614.0px;top:1386.0px;font-size:16px">
-<span style="left:1.0px;top:3.0px;font-size:57.0px;letter-spacing:3.68310546875px">Ein</span>
-<span style="left:21.3671875px;top:1.0px;font-size:60.0px;letter-spacing:3.001953125px">Besucher</span>
-<span style="left:38.734375px;top:22.0px;font-size:38.0px;letter-spacing:27.788736979166668px">vom</span>
-<span style="left:59.1015625px;top:5.0px;font-size:55.0px;letter-spacing:10.38720703125px">Mars</span>
-<span style="left:78.46875px;top:0.0px;font-size:60.0px;letter-spacing:4.376953125px">könnte</span>
-<span style="left:98.8359375px;top:0.0px;font-size:60.0px;letter-spacing:-2.4563802083333335px">die</span>
-<span style="left:119.203125px;top:0.0px;font-size:60.0px;letter-spacing:-5.507662259615385px">zivilisierten</span>
-<span style="left:138.5703125px;top:2.0px;font-size:58.0px;letter-spacing:5.4560546875px">Nationen</span><span style="left:138.5703125px;font-size:114.0px"><br/></span>
-<span style="left:0.0px;top:0.0px;font-size:61.0px;letter-spacing:-5.391764322916667px">leicht</span>
-<span style="left:13.3671875px;top:22.0px;font-size:39.0px;letter-spacing:19.52001953125px">von</span>
-<span style="left:30.734375px;top:0.0px;font-size:61.0px;letter-spacing:4.941569010416667px">den</span>
-<span style="left:49.1015625px;top:0.0px;font-size:61.0px;letter-spacing:2.9891880580357144px">anderen</span>
-<span style="left:66.46875px;top:0.0px;font-size:61.0px;letter-spacing:-0.5108119419642857px">unterscheiden.</span>
-<span style="left:84.8359375px;top:2.0px;font-size:59.0px;letter-spacing:-3.8543294270833335px">Sie</span>
-<span style="left:100.203125px;top:0.0px;font-size:61.0px;letter-spacing:5.27490234375px">haben</span>
-<span style="left:117.5703125px;top:0.0px;font-size:60.0px;letter-spacing:0.5436197916666666px">das</span>
-<span style="left:132.9375px;top:0.0px;font-size:61.0px;letter-spacing:-2.12509765625px">beste</span><span style="left:132.9375px;font-size:120.0px"><br/></span>
-<span style="left:2.0px;top:0.0px;font-size:78.0px;letter-spacing:-13.043294270833334px">Kriegsgerät.</span><span style="left:2.0px;font-size:10px"><br/><br/></span>
+<div class="p" style="left:614px;top:1386px;font-size:16px">
+<span style="left:615px;top:1389px;font-size:57px;transform:scaleX(1.1073263044065964)">Ein</span>
+<span style="left:759px;top:1387px;font-size:60px;transform:scaleX(1.0831035414977022)">Besucher</span>
+<span style="left:1099px;top:1408px;font-size:38px;transform:scaleX(2.214652608813193)">vom</span>
+<span style="left:1281px;top:1391px;font-size:55px;transform:scaleX(1.3136916611369165)">Mars</span>
+<span style="left:1484px;top:1386px;font-size:60px;transform:scaleX(1.121167883211679)">könnte</span>
+<span style="left:1757px;top:1386px;font-size:60px;transform:scaleX(0.9319996395422186)">die</span>
+<span style="left:1888px;top:1386px;font-size:60px;transform:scaleX(0.8475305176035104)">zivilisierten</span>
+<span style="left:2315px;top:1388px;font-size:58px;transform:scaleX(1.1562491260452499)">Nationen</span><span style="left:138.5703125px;font-size:114px"><br/></span>
+<span style="left:614px;top:1503px;font-size:61px;transform:scaleX(0.8531858411001645)">leicht</span>
+<span style="left:825px;top:1525px;font-size:39px;transform:scaleX(1.8313473495955248)">von</span>
+<span style="left:981px;top:1503px;font-size:61px;transform:scaleX(1.134555639760857)">den</span>
+<span style="left:1134px;top:1503px;font-size:61px;transform:scaleX(1.0813936040692054)">anderen</span>
+<span style="left:1439px;top:1503px;font-size:61px;transform:scaleX(0.9860909303292934)">unterscheiden.</span>
+<span style="left:1974px;top:1505px;font-size:59px;transform:scaleX(0.8914915162595478)">Sie</span>
+<span style="left:2094px;top:1503px;font-size:61px;transform:scaleX(1.1436320848789436)">haben</span>
+<span style="left:2331px;top:1503px;font-size:60px;transform:scaleX(1.0150491123727134)">das</span>
+<span style="left:2466px;top:1503px;font-size:61px;transform:scaleX(0.9421350032574157)">beste</span><span style="left:132.9375px;font-size:120px"><br/></span>
+<span style="left:616px;top:1623px;font-size:78px;transform:scaleX(0.7222464838036614)">Kriegsgerät.</span><span style="left:2px;font-size:10px"><br/><br/></span>
 </div>
-<div class="p" style="left:1282.0px;top:1737.0px;font-size:16px">
-<span style="left:0.0px;top:1.0px;font-size:60.0px;letter-spacing:1.876953125px">Herbert</span>
-<span style="left:9.3671875px;top:5.0px;font-size:56.0px;letter-spacing:-5.71484375px">V.</span>
-<span style="left:20.734375px;top:0.0px;font-size:61.0px;letter-spacing:5.14990234375px">Prochnow</span><span style="left:20.734375px;font-size:10px"><br/><br/><br/><br/></span>
+<div class="p" style="left:1282px;top:1737px;font-size:16px">
+<span style="left:1282px;top:1738px;font-size:60px;transform:scaleX(1.0519599891862665)">Herbert</span>
+<span style="left:1567px;top:1742px;font-size:56px;transform:scaleX(0.8304947283049472)">V.</span>
+<span style="left:1644px;top:1737px;font-size:61px;transform:scaleX(1.1402284179596613)">Prochnow</span><span style="left:20.734375px;font-size:10px"><br/><br/><br/><br/></span>
 </div>
 </div>
 </body>

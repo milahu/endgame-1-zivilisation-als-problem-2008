@@ -27,7 +27,6 @@ body {
 }
 div.page {
  position: relative;
- overflow: hidden;
  transform-origin: top left;
  margin: auto;
 }
@@ -39,17 +38,14 @@ div.page > img.page {
  user-select: none;
 }
 div.p {
- position: absolute;
- white-space: nowrap;
 }
 div.p > div, span {
  display: inline;
- position: relative;
+ position: absolute;
  color: transparent;
  white-space: nowrap;
  line-height: 1;
  transform-origin: left center;
- vertical-align: top;
 }
 @media (prefers-color-scheme: dark) {
  div.page { filter: invert(); }
@@ -61,64 +57,46 @@ div.p, div.p > div, span {
  font-kerning: none;
 }
 </style>
-<script type="application/javascript">
+<script type="application/javascript" class="pragma-once">
 // <![CDATA[
-if (!globalThis._userAgentDetectionIsDone) {
-globalThis._userAgentDetectionIsDone = true;
-(() => {
-  const ua = navigator.userAgent;
-  if (ua.includes('Firefox')) { console.log('user agent is Firefox'); globalThis._userAgentIsFirefox = true; return; }
-  if (ua.includes('Edg')) { console.log('user agent is Edge'); globalThis._userAgentIsEdge = true; return; }
-  if (ua.includes('Chrome')) { console.log('user agent is Chrome'); globalThis._userAgentIsChrome = true; return; }
-  if (ua.includes('Safari')) { console.log('user agent is Safari'); globalThis._userAgentIsSafari = true; return; }
-})();
-}
-if (!globalThis._DOMContentLoadedEventListenerIsAdded) {
-globalThis._DOMContentLoadedEventListenerIsAdded = true;
-document.addEventListener('DOMContentLoaded', () => {
-  if (globalThis._userAgentIsFirefox) {
-    console.log('removing &nbsp; after words to fix clipboard text');
-    for (const span of document.querySelectorAll('span')) {
-      if (span.innerHTML.slice(-6) != '&nbsp;') continue;
-      span.innerHTML = span.innerHTML.slice(0, -6);
-    }
-  }
-});
-}
+function makeRelativeSpans(e=1,t=1){let l=.6,n=parseFloat,i="textContent";for(let o of document.querySelectorAll("div.p")){let s=o.style,r=0,a=0;s.position="absolute",s.whiteSpace="nowrap";let p=n(s.fontSize||16)*l,c=n(s.left||0),f=n(s.top||0),h=o.querySelectorAll("span"),m=h.length-1;for(let o=0;o<h.length;o++){let s=h[o],u=h[o+1];if(null==s)continue;let S=s.innerHTML.startsWith("<br"),g=u?.innerHTML.startsWith("<br"),y=s.style,d=n(y.left||0)-c,v=n(y.top||0)-f,W=n(y.fontSize||16),x=y.transform?.match(/scaleX\(([^)]+)\)/),b=x?n(x[1]):1,z=s[i].length;s[i].endsWith("\xa0")&&(s[i]=s[i].slice(0,-1),z--);let A=0;if(g&&o<m-1&&e){let e=h[o+2];if(s[i].endsWith("-")&&" "!=s[i].slice(-2,-1)){let r=e[i];r.endsWith("\xa0")&&(r=r.slice(0,-1)),s[i]=s[i].slice(0,-1)+(t?"\xad":"")+r,z=z-1+r.length;let a=n(e.style.fontSize||16),c=e.style.transform?.match(/scaleX\(([^)]+)\)/),f=c?n(c[1]):1;A=a*l*r.length*f+p,e.remove(),h[o+2]=null}}let q=W*l*z,w=q*b,H=(w-q)/z;y.letterSpacing=H+"px";let L=d-r,M=v-a;y.position="relative",y.verticalAlign="top",y.display="inline",y.left=L+"px",y.top=M+"px",r+=w+p,A&&(r-=A,A=0),S&&o<m&&(e?s.remove():(r=0,a+=W))}}}
+let joinLines = 1;
+let addSoftHyphens = 1;
+document.addEventListener('DOMContentLoaded', () => makeRelativeSpans(joinLines, addSoftHyphens));
 // ]]>
 </script>
 </head>
 <body>
 <div class="page" id="page-0541" style="width: 3549px; height: 5322px">
 <img class="page" alt="" src="images/0541.avif" style="width: 3549px; height: 5322px"/>
-<div class="p" style="left:69.0px;top:4610.0px;font-size:16px">
-<span style="left:0.0px;top:0.0px;font-size:554.0px;letter-spacing:-318.5361328125px">Pendo</span><span style="left:0.0px;font-size:10px"><br/><br/></span>
+<div class="p" style="left:69px;top:4610px;font-size:16px">
+<span style="left:69px;top:4610px;font-size:554px;transform:scaleX(0.0449726387168744)">Pendo</span><span style="left:0px;font-size:10px"><br/><br/></span>
 </div>
-<div class="p" style="left:1089.0px;top:333.0px;font-size:16px">
-<span style="left:0.0px;top:0.0px;font-size:138.0px;letter-spacing:74.9169921875px">Derrick</span>
-<span style="left:218.3671875px;top:5.0px;font-size:165.0px;letter-spacing:62.328287760416664px">Jensen</span><span style="left:218.3671875px;font-size:10px"><br/><br/></span>
+<div class="p" style="left:1089px;top:333px;font-size:16px">
+<span style="left:1089px;top:333px;font-size:138px;transform:scaleX(1.9017125662635024)">Derrick</span>
+<span style="left:2423px;top:338px;font-size:165px;transform:scaleX(1.627434114052119)">Jensen</span><span style="left:218.3671875px;font-size:10px"><br/><br/></span>
 </div>
-<div class="p" style="left:303.0px;top:753.0px;font-size:16px">
-<span style="left:0.0px;top:0.0px;font-size:574.0px;letter-spacing:0.9942801339285714px">Endgame</span><span style="left:0.0px;font-size:10px"><br/><br/></span>
+<div class="p" style="left:303px;top:753px;font-size:16px">
+<span style="left:303px;top:753px;font-size:574px;transform:scaleX(1.0028771582219025)">Endgame</span><span style="left:0px;font-size:10px"><br/><br/></span>
 </div>
-<div class="p" style="left:376.0px;top:3472.0px;font-size:16px">
-<span style="left:0.0px;top:0.0px;font-size:98.0px;letter-spacing:48.332356770833336px">ZIVILISATION</span><span style="left:0.0px;font-size:186.0px"><br/></span>
-<span style="left:419.0px;top:0.0px;font-size:97.0px;letter-spacing:41.267740885416664px">ALS</span>
-<span style="left:560.3671875px;top:0.0px;font-size:97.0px;letter-spacing:61.458217075892854px">PROBLEM</span><span style="left:560.3671875px;font-size:10px"><br/><br/></span>
+<div class="p" style="left:376px;top:3472px;font-size:16px">
+<span style="left:376px;top:3472px;font-size:98px;transform:scaleX(1.8191789286679798)">ZIVILISATION</span><span style="left:0px;font-size:186px"><br/></span>
+<span style="left:795px;top:3658px;font-size:97px;transform:scaleX(1.7066523969977956)">ALS</span>
+<span style="left:1245px;top:3658px;font-size:97px;transform:scaleX(2.052386088506188)">PROBLEM</span><span style="left:560.3671875px;font-size:10px"><br/><br/></span>
 </div>
-<div class="p" style="left:2635.0px;top:3854.0px;font-size:16px">
-<span style="left:255.0px;top:0.0px;font-size:67.0px;letter-spacing:8.16259765625px">»Das</span><span style="left:255.0px;font-size:97.0px"><br/></span>
-<span style="left:130.0px;top:0.0px;font-size:91.0px;letter-spacing:-11.18662109375px">wichtigste</span><span style="left:130.0px;font-size:100.0px"><br/></span>
-<span style="left:0.0px;top:0.0px;font-size:71.0px;letter-spacing:10.50439453125px">Buch</span>
-<span style="left:20.3671875px;top:-1.0px;font-size:72.0px;letter-spacing:1.9856770833333333px">der</span>
-<span style="left:40.734375px;top:0.0px;font-size:71.0px;letter-spacing:-3.1741768973214284px">letzten</span><span style="left:40.734375px;font-size:102.0px"><br/></span>
-<span style="left:161.0px;top:0.0px;font-size:69.0px;letter-spacing:5.95849609375px">10</span>
-<span style="left:180.3671875px;top:-2.0px;font-size:86.0px;letter-spacing:-8.2763671875px">Jahre«</span><span style="left:180.3671875px;font-size:10px"><br/><br/></span>
+<div class="p" style="left:2635px;top:3854px;font-size:16px">
+<span style="left:2890px;top:3854px;font-size:67px;transform:scaleX(1.202358039486267)">»Das</span><span style="left:255px;font-size:97px"><br/></span>
+<span style="left:2765px;top:3951px;font-size:91px;transform:scaleX(0.795814728661444)">wichtigste</span><span style="left:130px;font-size:100px"><br/></span>
+<span style="left:2635px;top:4051px;font-size:71px;transform:scaleX(1.245742092457421)">Buch</span>
+<span style="left:2878px;top:4050px;font-size:72px;transform:scaleX(1.0458081763840077)">der</span>
+<span style="left:3044px;top:4051px;font-size:71px;transform:scaleX(0.9257426146497804)">letzten</span><span style="left:40.734375px;font-size:102px"><br/></span>
+<span style="left:2796px;top:4153px;font-size:69px;transform:scaleX(1.1434347708546375)">10</span>
+<span style="left:2920px;top:4151px;font-size:86px;transform:scaleX(0.8401516437503536)">Jahre«</span><span style="left:180.3671875px;font-size:10px"><br/><br/></span>
 </div>
-<div class="p" style="left:2772.0px;top:4268.0px;font-size:16px">
-<span style="left:0.0px;top:0.0px;font-size:63.0px;letter-spacing:-4.006122295673077px">Press-Action-</span><span style="left:0.0px;font-size:87.0px"><br/></span>
-<span style="left:21.0px;top:0.0px;font-size:69.0px;letter-spacing:5.85849609375px">Award</span>
-<span style="left:30.3671875px;top:4.0px;font-size:77.0px;letter-spacing:-12.10791015625px">Jury</span><span style="left:30.3671875px;font-size:10px"><br/><br/><br/><br/></span>
+<div class="p" style="left:2772px;top:4268px;font-size:16px">
+<span style="left:2772px;top:4268px;font-size:63px;transform:scaleX(0.8943789381745586)">Press-Action-</span><span style="left:0px;font-size:87px"><br/></span>
+<span style="left:2793px;top:4355px;font-size:69px;transform:scaleX(1.1410275397581013)">Award</span>
+<span style="left:3049px;top:4359px;font-size:77px;transform:scaleX(0.7388167388167388)">Jury</span><span style="left:30.3671875px;font-size:10px"><br/><br/><br/><br/></span>
 </div>
 </div>
 </body>

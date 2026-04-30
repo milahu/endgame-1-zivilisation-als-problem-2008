@@ -27,7 +27,6 @@ body {
 }
 div.page {
  position: relative;
- overflow: hidden;
  transform-origin: top left;
  margin: auto;
 }
@@ -39,17 +38,14 @@ div.page > img.page {
  user-select: none;
 }
 div.p {
- position: absolute;
- white-space: nowrap;
 }
 div.p > div, span {
  display: inline;
- position: relative;
+ position: absolute;
  color: transparent;
  white-space: nowrap;
  line-height: 1;
  transform-origin: left center;
- vertical-align: top;
 }
 @media (prefers-color-scheme: dark) {
  div.page { filter: invert(); }
@@ -61,389 +57,371 @@ div.p, div.p > div, span {
  font-kerning: none;
 }
 </style>
-<script type="application/javascript">
+<script type="application/javascript" class="pragma-once">
 // <![CDATA[
-if (!globalThis._userAgentDetectionIsDone) {
-globalThis._userAgentDetectionIsDone = true;
-(() => {
-  const ua = navigator.userAgent;
-  if (ua.includes('Firefox')) { console.log('user agent is Firefox'); globalThis._userAgentIsFirefox = true; return; }
-  if (ua.includes('Edg')) { console.log('user agent is Edge'); globalThis._userAgentIsEdge = true; return; }
-  if (ua.includes('Chrome')) { console.log('user agent is Chrome'); globalThis._userAgentIsChrome = true; return; }
-  if (ua.includes('Safari')) { console.log('user agent is Safari'); globalThis._userAgentIsSafari = true; return; }
-})();
-}
-if (!globalThis._DOMContentLoadedEventListenerIsAdded) {
-globalThis._DOMContentLoadedEventListenerIsAdded = true;
-document.addEventListener('DOMContentLoaded', () => {
-  if (globalThis._userAgentIsFirefox) {
-    console.log('removing &nbsp; after words to fix clipboard text');
-    for (const span of document.querySelectorAll('span')) {
-      if (span.innerHTML.slice(-6) != '&nbsp;') continue;
-      span.innerHTML = span.innerHTML.slice(0, -6);
-    }
-  }
-});
-}
+function makeRelativeSpans(e=1,t=1){let l=.6,n=parseFloat,i="textContent";for(let o of document.querySelectorAll("div.p")){let s=o.style,r=0,a=0;s.position="absolute",s.whiteSpace="nowrap";let p=n(s.fontSize||16)*l,c=n(s.left||0),f=n(s.top||0),h=o.querySelectorAll("span"),m=h.length-1;for(let o=0;o<h.length;o++){let s=h[o],u=h[o+1];if(null==s)continue;let S=s.innerHTML.startsWith("<br"),g=u?.innerHTML.startsWith("<br"),y=s.style,d=n(y.left||0)-c,v=n(y.top||0)-f,W=n(y.fontSize||16),x=y.transform?.match(/scaleX\(([^)]+)\)/),b=x?n(x[1]):1,z=s[i].length;s[i].endsWith("\xa0")&&(s[i]=s[i].slice(0,-1),z--);let A=0;if(g&&o<m-1&&e){let e=h[o+2];if(s[i].endsWith("-")&&" "!=s[i].slice(-2,-1)){let r=e[i];r.endsWith("\xa0")&&(r=r.slice(0,-1)),s[i]=s[i].slice(0,-1)+(t?"\xad":"")+r,z=z-1+r.length;let a=n(e.style.fontSize||16),c=e.style.transform?.match(/scaleX\(([^)]+)\)/),f=c?n(c[1]):1;A=a*l*r.length*f+p,e.remove(),h[o+2]=null}}let q=W*l*z,w=q*b,H=(w-q)/z;y.letterSpacing=H+"px";let L=d-r,M=v-a;y.position="relative",y.verticalAlign="top",y.display="inline",y.left=L+"px",y.top=M+"px",r+=w+p,A&&(r-=A,A=0),S&&o<m&&(e?s.remove():(r=0,a+=W))}}}
+let joinLines = 1;
+let addSoftHyphens = 1;
+document.addEventListener('DOMContentLoaded', () => makeRelativeSpans(joinLines, addSoftHyphens));
 // ]]>
 </script>
 </head>
 <body>
 <div class="page" id="page-0081" style="width: 3384px; height: 5088px">
 <img class="page" alt="" src="images/0081.avif" style="width: 3384px; height: 5088px"/>
-<div class="p" style="left:343.0px;top:442.0px;font-size:16px">
-<span style="left:0.0px;top:22.0px;font-size:50.0px;letter-spacing:1.8974609375px">vor,</span>
-<span style="left:11.3671875px;top:3.0px;font-size:59.0px;letter-spacing:2.8123372395833335px">wir</span>
-<span style="left:24.734375px;top:1.0px;font-size:80.0px;letter-spacing:-11.719618055555555px">sprächen,</span>
-<span style="left:38.1015625px;top:1.0px;font-size:61.0px;letter-spacing:-1.8679547991071428px">einzeln</span>
-<span style="left:53.46875px;top:1.0px;font-size:61.0px;letter-spacing:2.27490234375px">oder</span>
-<span style="left:64.8359375px;top:0.0px;font-size:71.0px;letter-spacing:-11.64560546875px">kollektiv,</span>
-<span style="left:79.203125px;top:0.0px;font-size:62.0px;letter-spacing:1.9228515625px">über</span>
-<span style="left:92.5703125px;top:0.0px;font-size:62.0px;letter-spacing:4.339518229166667px">den</span>
-<span style="left:106.9375px;top:1.0px;font-size:81.0px;letter-spacing:-13.123256138392858px">Dreistachligen</span>
-<span style="left:122.3046875px;top:1.0px;font-size:81.0px;letter-spacing:-16.66611328125px">Stichling,</span><span style="left:122.3046875px;font-size:98.0px"><br/></span>
-<span style="left:3.0px;top:0.0px;font-size:60.0px;letter-spacing:5.543619791666667px">den</span>
-<span style="left:20.3671875px;top:0.0px;font-size:80.0px;letter-spacing:-11.05295138888889px">Cyclargus</span>
-<span style="left:34.734375px;top:0.0px;font-size:60.0px;letter-spacing:4.019810267857143px">thomasi</span>
-<span style="left:47.1015625px;top:0.0px;font-size:69.0px;letter-spacing:-4.398646763392857px">bethunebakeri,</span>
-<span style="left:62.46875px;top:-1.0px;font-size:61.0px;letter-spacing:-3.0584309895833335px">die</span>
-<span style="left:73.8359375px;top:-1.0px;font-size:61.0px;letter-spacing:6.67490234375px">Weiße</span>
-<span style="left:84.203125px;top:0.0px;font-size:69.0px;letter-spacing:-3.16650390625px">Abalone,</span>
-<span style="left:99.5703125px;top:0.0px;font-size:60.0px;letter-spacing:-2.123046875px">die</span>
-<span style="left:113.9375px;top:-1.0px;font-size:80.0px;letter-spacing:-10.527698863636363px">Plüschkopf-</span><span style="left:113.9375px;font-size:129.0px"><br/></span>
-<span style="left:3.0px;top:0.0px;font-size:58.0px;letter-spacing:-2.5189453125px">ente,</span>
-<span style="left:18.3671875px;top:-12.0px;font-size:61.0px;letter-spacing:4.941569010416667px">den</span>
-<span style="left:35.734375px;top:-12.0px;font-size:80.0px;letter-spacing:-3.1640625px">Empidonax</span>
-<span style="left:48.1015625px;top:-12.0px;font-size:61.0px;letter-spacing:-10.60009765625px">traillii</span>
-<span style="left:64.46875px;top:-10.0px;font-size:68.0px;letter-spacing:-4.564453125px">extimus,</span>
-<span style="left:79.8359375px;top:-12.0px;font-size:61.0px;letter-spacing:5.27490234375px">den</span>
-<span style="left:91.203125px;top:-12.0px;font-size:80.0px;letter-spacing:-11.1640625px">Astragulus</span>
-<span style="left:107.5703125px;top:-12.0px;font-size:80.0px;letter-spacing:-5.240985576923077px">holmgreniorum</span>
-<span style="left:123.9375px;top:-8.0px;font-size:57.0px;letter-spacing:1.93310546875px">Bar-</span><span style="left:123.9375px;font-size:106.0px"><br/></span>
-<span style="left:3.0px;top:0.0px;font-size:80.0px;letter-spacing:-12.7640625px">neby,</span>
-<span style="left:18.3671875px;top:0.0px;font-size:60.0px;letter-spacing:5.876953125px">den</span>
-<span style="left:35.734375px;top:0.0px;font-size:80.0px;letter-spacing:-9.073153409090908px">Perognathus</span>
-<span style="left:52.1015625px;top:-1.0px;font-size:81.0px;letter-spacing:-8.182779947916666px">longimembris</span>
-<span style="left:68.46875px;top:-1.0px;font-size:80.0px;letter-spacing:-15.8640625px">pacificus.</span>
-<span style="left:84.8359375px;top:0.0px;font-size:61.0px;letter-spacing:13.27490234375px">Und</span>
-<span style="left:101.203125px;top:-1.0px;font-size:62.0px;letter-spacing:-4.0544211647727275px">schließlich</span>
-<span style="left:118.5703125px;top:0.0px;font-size:61.0px;letter-spacing:-8.22509765625px">stelle</span>
-<span style="left:133.9375px;top:21.0px;font-size:39.0px;letter-spacing:27.52001953125px">man</span><span style="left:133.9375px;font-size:117.0px"><br/></span>
-<span style="left:3.0px;top:0.0px;font-size:61.0px;letter-spacing:-3.72509765625px">sich</span>
-<span style="left:14.3671875px;top:22.0px;font-size:48.0px;letter-spacing:3.1015625px">vor,</span>
-<span style="left:25.734375px;top:2.0px;font-size:58.0px;letter-spacing:3.0810546875px">wir</span>
-<span style="left:37.1015625px;top:0.0px;font-size:61.0px;letter-spacing:-3.1536690848214284px">hielten</span>
-<span style="left:52.46875px;top:0.0px;font-size:61.0px;letter-spacing:1.67490234375px">deren</span>
-<span style="left:66.8359375px;top:0.0px;font-size:61.0px;letter-spacing:4.67490234375px">Leben</span>
-<span style="left:81.203125px;top:0.0px;font-size:60.0px;letter-spacing:-2.4563802083333335px">für</span>
-<span style="left:94.5703125px;top:0.0px;font-size:61.0px;letter-spacing:2.6082356770833335px">ebenso</span>
-<span style="left:107.9375px;top:0.0px;font-size:61.0px;letter-spacing:-1.60009765625px">wertvoll</span>
-<span style="left:119.3046875px;top:2.0px;font-size:59.0px;letter-spacing:4.145670572916667px">wie</span>
-<span style="left:132.671875px;top:22.0px;font-size:39.0px;letter-spacing:14.72001953125px">unser</span>
-<span style="left:146.0390625px;top:2.0px;font-size:78.0px;letter-spacing:-11.674246651785714px">eigenes</span>
-<span style="left:160.40625px;top:0.0px;font-size:61.0px;letter-spacing:8.608235677083334px">und</span><span style="left:160.40625px;font-size:117.0px"><br/></span>
-<span style="left:3.0px;top:0.0px;font-size:60.0px;letter-spacing:-3.4563802083333335px">ihr</span>
-<span style="left:18.3671875px;top:2.0px;font-size:79.0px;letter-spacing:-12.419154575892858px">Beitrag</span>
-<span style="left:32.734375px;top:22.0px;font-size:39.0px;letter-spacing:13.52001953125px">zur</span>
-<span style="left:43.1015625px;top:0.0px;font-size:61.0px;letter-spacing:3.02490234375px">Welt</span>
-<span style="left:57.46875px;top:0.0px;font-size:61.0px;letter-spacing:8.941569010416666px">und</span>
-<span style="left:71.8359375px;top:21.0px;font-size:40.0px;letter-spacing:12.91796875px">unserer</span>
-<span style="left:86.203125px;top:0.0px;font-size:80.0px;letter-spacing:-0.0390625px">Umgebung</span>
-<span style="left:98.5703125px;top:9.0px;font-size:52.0px;letter-spacing:9.443359375px">wäre</span>
-<span style="left:113.9375px;top:22.0px;font-size:39.0px;letter-spacing:16.853352864583332px">uns</span>
-<span style="left:130.3046875px;top:0.0px;font-size:61.0px;letter-spacing:2.77490234375px">ebenso</span>
-<span style="left:143.671875px;top:0.0px;font-size:61.0px;letter-spacing:-6.22509765625px">viel</span>
-<span style="left:156.0390625px;top:13.0px;font-size:48.0px;letter-spacing:9.8515625px">wert</span>
-<span style="left:168.40625px;top:2.0px;font-size:59.0px;letter-spacing:3.47900390625px">wie</span><span style="left:168.40625px;font-size:118.0px"><br/></span>
-<span style="left:3.0px;top:0.0px;font-size:60.0px;letter-spacing:0.5436197916666666px">das</span>
-<span style="left:16.3671875px;top:1.0px;font-size:60.0px;letter-spacing:-1.923046875px">eines</span>
-<span style="left:29.734375px;top:0.0px;font-size:61.0px;letter-spacing:2.7364408052884617px">Börsenmaklers</span>
-<span style="left:40.1015625px;top:37.0px;font-size:6.0px;letter-spacing:40.3876953125px">—</span>
-<span style="left:51.46875px;top:-1.0px;font-size:61.0px;letter-spacing:2.27490234375px">oder</span>
-<span style="left:63.8359375px;top:21.0px;font-size:59.0px;letter-spacing:0.87900390625px">sogar</span>
-<span style="left:74.203125px;top:-1.0px;font-size:61.0px;letter-spacing:6.52490234375px">noch</span>
-<span style="left:86.5703125px;top:-1.0px;font-size:61.0px;letter-spacing:9.27490234375px">mehr</span>
-<span style="left:95.9375px;top:37.0px;font-size:32.0px;letter-spacing:11.234375px">—,</span>
-<span style="left:108.3046875px;top:-1.0px;font-size:61.0px;letter-spacing:-5.22509765625px">selbst</span>
-<span style="left:118.671875px;top:-1.0px;font-size:61.0px;letter-spacing:7.27490234375px">dann</span>
-<span style="left:131.0390625px;top:-1.0px;font-size:70.0px;letter-spacing:-3.9435546875px">noch,</span>
-<span style="left:141.40625px;top:21.0px;font-size:39.0px;letter-spacing:23.27001953125px">wenn</span><span style="left:141.40625px;font-size:117.0px"><br/></span>
-<span style="left:3.0px;top:0.0px;font-size:60.0px;letter-spacing:0.876953125px">der</span>
-<span style="left:22.3671875px;top:0.0px;font-size:57.0px;letter-spacing:5.849772135416667px">Börsenmakler</span>
-<span style="left:41.734375px;top:2.0px;font-size:58.0px;letter-spacing:2.4810546875px">einen</span>
-<span style="left:61.1015625px;top:0.0px;font-size:60.0px;letter-spacing:2.019810267857143px">Porsche</span>
-<span style="left:80.46875px;top:-1.0px;font-size:70.0px;letter-spacing:-11.310221354166666px">fährt,</span>
-<span style="left:99.8359375px;top:21.0px;font-size:39.0px;letter-spacing:16.853352864583332px">uns</span>
-<span style="left:119.203125px;top:-1.0px;font-size:61.0px;letter-spacing:5.27490234375px">den</span>
-<span style="left:139.5703125px;top:-1.0px;font-size:80.0px;letter-spacing:-13.330729166666666px">Stinkefinger</span>
-<span style="left:157.9375px;top:2.0px;font-size:77.0px;letter-spacing:-14.75791015625px">zeigt</span>
-<span style="left:176.3046875px;top:-1.0px;font-size:61.0px;letter-spacing:8.941569010416666px">und</span>
-<span style="left:194.671875px;top:0.0px;font-size:60.0px;letter-spacing:0.21028645833333334px">da-</span><span style="left:194.671875px;font-size:117.0px"><br/></span>
-<span style="left:1.0px;top:0.0px;font-size:60.0px;letter-spacing:0.576953125px">vonbraust.</span><span style="left:1.0px;font-size:10px"><br/><br/></span>
+<div class="p" style="left:343px;top:442px;font-size:16px">
+<span style="left:343px;top:464px;font-size:50px;transform:scaleX(1.0630332522303325)">vor,</span>
+<span style="left:492px;top:445px;font-size:59px;transform:scaleX(1.0791739407352423)">wir</span>
+<span style="left:630px;top:443px;font-size:80px;transform:scaleX(0.7566729746778409)">sprächen,</span>
+<span style="left:981px;top:443px;font-size:61px;transform:scaleX(0.9491368323485111)">einzeln</span>
+<span style="left:1250px;top:443px;font-size:61px;transform:scaleX(1.0619440788161623)">oder</span>
+<span style="left:1427px;top:442px;font-size:71px;transform:scaleX(0.7275601704305312)">kollektiv,</span>
+<span style="left:1762px;top:442px;font-size:62px;transform:scaleX(1.051513486644167)">über</span>
+<span style="left:1942px;top:442px;font-size:62px;transform:scaleX(1.1162563552485851)">den</span>
+<span style="left:2091px;top:443px;font-size:81px;transform:scaleX(0.7308939496017084)">Dreistachligen</span>
+<span style="left:2615px;top:443px;font-size:81px;transform:scaleX(0.658243969841699)">Stichling,</span><span style="left:122.3046875px;font-size:98px"><br/></span>
+<span style="left:346px;top:562px;font-size:60px;transform:scaleX(1.153464900423538)">den</span>
+<span style="left:498px;top:562px;font-size:80px;transform:scaleX(0.7705145534829233)">Cyclargus</span>
+<span style="left:856px;top:562px;font-size:60px;transform:scaleX(1.1112810412080485)">thomasi</span>
+<span style="left:1159px;top:562px;font-size:69px;transform:scaleX(0.8941144072848294)">bethunebakeri,</span>
+<span style="left:1704px;top:561px;font-size:61px;transform:scaleX(0.9167209569267724)">die</span>
+<span style="left:1826px;top:561px;font-size:61px;transform:scaleX(1.1817531543749085)">Weiße</span>
+<span style="left:2063px;top:562px;font-size:69px;transform:scaleX(0.9237749332957204)">Abalone,</span>
+<span style="left:2395px;top:562px;font-size:60px;transform:scaleX(0.9412273587456069)">die</span>
+<span style="left:2521px;top:561px;font-size:80px;transform:scaleX(0.7814200398142003)">Plüschkopf-</span><span style="left:113.9375px;font-size:129px"><br/></span>
+<span style="left:346px;top:691px;font-size:58px;transform:scaleX(0.9278630757613895)">ente,</span>
+<span style="left:533px;top:679px;font-size:61px;transform:scaleX(1.134555639760857)">den</span>
+<span style="left:685px;top:679px;font-size:80px;transform:scaleX(0.9343065693430658)">Empidonax</span>
+<span style="left:1112px;top:679px;font-size:61px;transform:scaleX(0.7113663861300573)">traillii</span>
+<span style="left:1347px;top:681px;font-size:68px;transform:scaleX(0.8885072277086017)">extimus,</span>
+<span style="left:1663px;top:679px;font-size:61px;transform:scaleX(1.1436320848789439)">den</span>
+<span style="left:1810px;top:679px;font-size:80px;transform:scaleX(0.7682076236820763)">Astragulus</span>
+<span style="left:2206px;top:679px;font-size:80px;transform:scaleX(0.8911847276810781)">holmgreniorum</span>
+<span style="left:2790px;top:683px;font-size:57px;transform:scaleX(1.056331014072082)">Bar-</span><span style="left:123.9375px;font-size:106px"><br/></span>
+<span style="left:346px;top:797px;font-size:80px;transform:scaleX(0.7349878345498783)">neby,</span>
+<span style="left:548px;top:797px;font-size:60px;transform:scaleX(1.1626926196269263)">den</span>
+<span style="left:701px;top:797px;font-size:80px;transform:scaleX(0.8116198481161985)">Perognathus</span>
+<span style="left:1157px;top:796px;font-size:81px;transform:scaleX(0.8322035651944636)">longimembris</span>
+<span style="left:1670px;top:796px;font-size:80px;transform:scaleX(0.6706244931062448)">pacificus.</span>
+<span style="left:2019px;top:797px;font-size:61px;transform:scaleX(1.3614667677130283)">Und</span>
+<span style="left:2195px;top:796px;font-size:62px;transform:scaleX(0.8913814385912339)">schließlich</span>
+<span style="left:2588px;top:797px;font-size:61px;transform:scaleX(0.7760360575964261)">stelle</span>
+<span style="left:2784px;top:818px;font-size:39px;transform:scaleX(2.1720631355667854)">man</span><span style="left:133.9375px;font-size:117px"><br/></span>
+<span style="left:346px;top:914px;font-size:61px;transform:scaleX(0.8985680666905986)">sich</span>
+<span style="left:499px;top:936px;font-size:48px;transform:scaleX(1.1073263044065964)">vor,</span>
+<span style="left:648px;top:916px;font-size:58px;transform:scaleX(1.0882344715719998)">wir</span>
+<span style="left:783px;top:914px;font-size:61px;transform:scaleX(0.9141276868930334)">hielten</span>
+<span style="left:1043px;top:914px;font-size:61px;transform:scaleX(1.0456064776036058)">deren</span>
+<span style="left:1259px;top:914px;font-size:61px;transform:scaleX(1.1272944836663874)">Leben</span>
+<span style="left:1490px;top:914px;font-size:60px;transform:scaleX(0.9319996395422186)">für</span>
+<span style="left:1614px;top:914px;font-size:61px;transform:scaleX(1.071020523934249)">ebenso</span>
+<span style="left:1873px;top:914px;font-size:61px;transform:scaleX(0.9564304043184023)">wertvoll</span>
+<span style="left:2175px;top:916px;font-size:59px;transform:scaleX(1.116710425630381)">wie</span>
+<span style="left:2317px;top:936px;font-size:39px;transform:scaleX(1.6269178780127684)">unser</span>
+<span style="left:2531px;top:916px;font-size:78px;transform:scaleX(0.7513999922759046)">eigenes</span>
+<span style="left:2802px;top:914px;font-size:61px;transform:scaleX(1.2343965360598124)">und</span><span style="left:160.40625px;font-size:117px"><br/></span>
+<span style="left:346px;top:1031px;font-size:60px;transform:scaleX(0.9043164819320538)">ihr</span>
+<span style="left:469px;top:1033px;font-size:79px;transform:scaleX(0.7388850023978916)">Beitrag</span>
+<span style="left:739px;top:1053px;font-size:39px;transform:scaleX(1.5758105101170796)">zur</span>
+<span style="left:870px;top:1031px;font-size:61px;transform:scaleX(1.0823660803318575)">Welt</span>
+<span style="left:1053px;top:1031px;font-size:61px;transform:scaleX(1.2434729811778993)">und</span>
+<span style="left:1214px;top:1052px;font-size:40px;transform:scaleX(1.5364152473641524)">unserer</span>
+<span style="left:1497px;top:1031px;font-size:80px;transform:scaleX(0.9991889699918897)">Umgebung</span>
+<span style="left:1904px;top:1040px;font-size:52px;transform:scaleX(1.3016407760933306)">wäre</span>
+<span style="left:2092px;top:1053px;font-size:39px;transform:scaleX(1.7177754209384382)">uns</span>
+<span style="left:2239px;top:1031px;font-size:61px;transform:scaleX(1.0755587464932923)">ebenso</span>
+<span style="left:2499px;top:1031px;font-size:61px;transform:scaleX(0.8304947283049472)">viel</span>
+<span style="left:2643px;top:1044px;font-size:48px;transform:scaleX(1.3409029467423628)">wert</span>
+<span style="left:2820px;top:1033px;font-size:59px;transform:scaleX(1.0979421831828116)">wie</span><span style="left:168.40625px;font-size:118px"><br/></span>
+<span style="left:346px;top:1149px;font-size:60px;transform:scaleX(1.0150491123727134)">das</span>
+<span style="left:479px;top:1150px;font-size:60px;transform:scaleX(0.9467639902676399)">eines</span>
+<span style="left:673px;top:1149px;font-size:61px;transform:scaleX(1.0745114643642824)">Börsenmaklers</span>
+<span style="left:1206px;top:1186px;font-size:6px;transform:scaleX(12.18058934847256)">—</span>
+<span style="left:1271px;top:1148px;font-size:61px;transform:scaleX(1.0619440788161623)">oder</span>
+<span style="left:1449px;top:1170px;font-size:59px;transform:scaleX(1.024746037637291)">sogar</span>
+<span style="left:1651px;top:1148px;font-size:61px;transform:scaleX(1.1776687540717696)">noch</span>
+<span style="left:1846px;top:1148px;font-size:61px;transform:scaleX(1.252549426295986)">mehr</span>
+<span style="left:2049px;top:1186px;font-size:32px;transform:scaleX(1.5831305758313057)">—,</span>
+<span style="left:2132px;top:1148px;font-size:61px;transform:scaleX(0.8577240636592078)">selbst</span>
+<span style="left:2341px;top:1148px;font-size:61px;transform:scaleX(1.198090755587465)">dann</span>
+<span style="left:2539px;top:1148px;font-size:70px;transform:scaleX(0.9064256748928281)">noch,</span>
+<span style="left:2750px;top:1170px;font-size:39px;transform:scaleX(1.991057874269553)">wenn</span><span style="left:141.40625px;font-size:117px"><br/></span>
+<span style="left:346px;top:1266px;font-size:60px;transform:scaleX(1.0242768315761017)">der</span>
+<span style="left:486px;top:1266px;font-size:57px;transform:scaleX(1.1704633305350425)">Börsenmakler</span>
+<span style="left:997px;top:1268px;font-size:58px;transform:scaleX(1.0710518220208631)">einen</span>
+<span style="left:1213px;top:1266px;font-size:60px;transform:scaleX(1.0559147259877188)">Porsche</span>
+<span style="left:1509px;top:1265px;font-size:70px;transform:scaleX(0.7316263082686439)">fährt,</span>
+<span style="left:1723px;top:1287px;font-size:39px;transform:scaleX(1.7177754209384382)">uns</span>
+<span style="left:1873px;top:1265px;font-size:61px;transform:scaleX(1.1436320848789439)">den</span>
+<span style="left:2029px;top:1265px;font-size:80px;transform:scaleX(0.7232224925655583)">Stinkefinger</span>
+<span style="left:2475px;top:1268px;font-size:77px;transform:scaleX(0.6816528159593853)">zeigt</span>
+<span style="left:2661px;top:1265px;font-size:61px;transform:scaleX(1.2434729811778993)">und</span>
+<span style="left:2826px;top:1266px;font-size:60px;transform:scaleX(1.005821393169325)">da-</span><span style="left:194.671875px;font-size:117px"><br/></span>
+<span style="left:344px;top:1383px;font-size:60px;transform:scaleX(1.015971884293052)">vonbraust.</span><span style="left:1px;font-size:10px"><br/><br/></span>
 </div>
-<div class="p" style="left:1574.0px;top:1618.0px;font-size:16px">
-<span style="left:0.0px;top:0.0px;font-size:37.0px;letter-spacing:22.390787760416668px">***</span><span style="left:0.0px;font-size:10px"><br/><br/></span>
+<div class="p" style="left:1574px;top:1618px;font-size:16px">
+<span style="left:1574px;top:1618px;font-size:37px;transform:scaleX(2.0051584431146474)">***</span><span style="left:0px;font-size:10px"><br/><br/></span>
 </div>
-<div class="p" style="left:343.0px;top:1851.0px;font-size:16px">
-<span style="left:3.0px;top:3.0px;font-size:58.0px;letter-spacing:4.747721354166667px">Die</span>
-<span style="left:15.3671875px;top:3.0px;font-size:59.0px;letter-spacing:-2.8543294270833335px">vierte</span>
-<span style="left:30.734375px;top:2.0px;font-size:60.0px;letter-spacing:2.126953125px">Prämisse</span>
-<span style="left:46.1015625px;top:0.0px;font-size:61.0px;letter-spacing:-3.5584309895833335px">dieses</span>
-<span style="left:61.46875px;top:0.0px;font-size:61.0px;letter-spacing:3.77490234375px">Buches</span>
-<span style="left:75.8359375px;top:0.0px;font-size:70.0px;letter-spacing:-11.714983258928571px">lautet,</span>
-<span style="left:90.203125px;top:0.0px;font-size:61.0px;letter-spacing:-1.47509765625px">dass</span>
-<span style="left:106.5703125px;top:0.0px;font-size:61.0px;letter-spacing:-3.0584309895833335px">die</span>
-<span style="left:120.9375px;top:0.0px;font-size:61.0px;letter-spacing:-4.058430989583333px">Zivilisation</span>
-<span style="left:137.3046875px;top:0.0px;font-size:61.0px;letter-spacing:1.6082356770833333px">auf</span>
-<span style="left:145.671875px;top:2.0px;font-size:59.0px;letter-spacing:-0.92099609375px">einer</span>
-<span style="left:158.0390625px;top:0.0px;font-size:60.0px;letter-spacing:-2.873046875px">klar</span><span style="left:158.0390625px;font-size:114.0px"><br/></span>
-<span style="left:3.0px;top:0.0px;font-size:62.0px;letter-spacing:-2.9635120738636362px">definierten</span>
-<span style="left:22.3671875px;top:1.0px;font-size:61.0px;letter-spacing:8.608235677083334px">und</span>
-<span style="left:37.734375px;top:1.0px;font-size:61.0px;letter-spacing:0.5606166294642857px">weithin</span>
-<span style="left:56.1015625px;top:1.0px;font-size:79.0px;letter-spacing:-13.408165564903847px">akzeptierten,</span>
-<span style="left:73.46875px;top:0.0px;font-size:62.0px;letter-spacing:-0.3271484375px">aber</span>
-<span style="left:89.8359375px;top:0.0px;font-size:81.0px;letter-spacing:-12.26611328125px">häufig</span>
-<span style="left:106.203125px;top:0.0px;font-size:62.0px;letter-spacing:-1.9271484375px">nicht</span>
-<span style="left:123.5703125px;top:22.0px;font-size:39.0px;letter-spacing:26.853352864583332px">zum</span>
-<span style="left:136.9375px;top:0.0px;font-size:62.0px;letter-spacing:4.7978515625px">Ausdruck</span>
-<span style="left:152.3046875px;top:22.0px;font-size:59.0px;letter-spacing:-1.52099609375px">ge-</span><span style="left:152.3046875px;font-size:119.0px"><br/></span>
-<span style="left:1.0px;top:0.0px;font-size:61.0px;letter-spacing:1.52490234375px">brachten</span>
-<span style="left:17.3671875px;top:0.0px;font-size:61.0px;letter-spacing:-0.22509765625px">Hierarchie</span>
-<span style="left:31.734375px;top:0.0px;font-size:61.0px;letter-spacing:-1.0108119419642858px">beruht.</span>
-<span style="left:49.1015625px;top:2.0px;font-size:58.0px;letter-spacing:4.747721354166667px">Die</span>
-<span style="left:65.46875px;top:1.0px;font-size:58.0px;letter-spacing:-1.9189453125px">in</span>
-<span style="left:81.8359375px;top:-1.0px;font-size:61.0px;letter-spacing:-3.0584309895833335px">dieser</span>
-<span style="left:97.203125px;top:-1.0px;font-size:61.0px;letter-spacing:-0.12509765625px">Hierarchie</span>
-<span style="left:110.5703125px;top:21.0px;font-size:39.0px;letter-spacing:19.52001953125px">von</span>
-<span style="left:126.9375px;top:-1.0px;font-size:61.0px;letter-spacing:5.77490234375px">oben</span>
-<span style="left:143.3046875px;top:-1.0px;font-size:61.0px;letter-spacing:4.27490234375px">nach</span>
-<span style="left:159.671875px;top:12.0px;font-size:48.0px;letter-spacing:11.3015625px">unten</span><span style="left:159.671875px;font-size:117.0px"><br/></span>
-<span style="left:3.0px;top:0.0px;font-size:80.0px;letter-spacing:-10.05295138888889px">ausgeübte</span>
-<span style="left:20.3671875px;top:0.0px;font-size:61.0px;letter-spacing:3.27490234375px">Gewalt</span>
-<span style="left:33.734375px;top:0.0px;font-size:60.0px;letter-spacing:-3.2897135416666665px">bleibt</span>
-<span style="left:49.1015625px;top:0.0px;font-size:60.0px;letter-spacing:-6.623046875px">fast</span>
-<span style="left:64.46875px;top:2.0px;font-size:58.0px;letter-spacing:11.6810546875px">immer</span>
-<span style="left:79.8359375px;top:0.0px;font-size:69.0px;letter-spacing:-6.632412997159091px">unsichtbar,</span>
-<span style="left:95.203125px;top:-1.0px;font-size:61.0px;letter-spacing:8.941569010416666px">und</span>
-<span style="left:110.5703125px;top:-1.0px;font-size:61.0px;letter-spacing:0.27490234375px">das</span>
-<span style="left:125.9375px;top:-1.0px;font-size:61.0px;letter-spacing:-4.058430989583333px">heißt:</span>
-<span style="left:144.3046875px;top:-1.0px;font-size:61.0px;letter-spacing:3.37490234375px">unbemerkt.</span><span style="left:144.3046875px;font-size:117.0px"><br/></span>
-<span style="left:0.0px;top:0.0px;font-size:60.0px;letter-spacing:8.626953125px">Wird</span>
-<span style="left:9.3671875px;top:2.0px;font-size:59.0px;letter-spacing:-6.854329427083333px">sie</span>
-<span style="left:18.734375px;top:0.0px;font-size:61.0px;letter-spacing:-0.72509765625px">indes</span>
-<span style="left:26.1015625px;top:0.0px;font-size:69.0px;letter-spacing:-2.79150390625px">bemerkt,</span>
-<span style="left:35.46875px;top:-1.0px;font-size:61.0px;letter-spacing:6.77490234375px">dann</span>
-<span style="left:43.8359375px;top:-1.0px;font-size:61.0px;letter-spacing:3.02490234375px">wird</span>
-<span style="left:54.203125px;top:1.0px;font-size:59.0px;letter-spacing:-6.854329427083333px">sie</span>
-<span style="left:63.5703125px;top:1.0px;font-size:58.0px;letter-spacing:-1.9189453125px">in</span>
-<span style="left:70.9375px;top:-1.0px;font-size:61.0px;letter-spacing:2.27490234375px">vollem</span>
-<span style="left:81.3046875px;top:-1.0px;font-size:80.0px;letter-spacing:-1.3307291666666667px">Umfang</span>
-<span style="left:89.671875px;top:-1.0px;font-size:61.0px;letter-spacing:-5.92509765625px">rationalisiert.</span>
-<span style="left:100.0390625px;top:3.0px;font-size:57.0px;letter-spacing:3.18310546875px">Es</span>
-<span style="left:110.40625px;top:1.0px;font-size:59.0px;letter-spacing:-9.854329427083334px">ist</span><span style="left:110.40625px;font-size:117.0px"><br/></span>
-<span style="left:3.0px;top:0.0px;font-size:69.0px;letter-spacing:-2.24150390625px">undenkbar,</span>
-<span style="left:29.3671875px;top:0.0px;font-size:61.0px;letter-spacing:-1.72509765625px">dass</span>
-<span style="left:56.734375px;top:0.0px;font-size:61.0px;letter-spacing:3.4415690104166665px">Gewalt</span>
-<span style="left:79.1015625px;top:21.0px;font-size:39.0px;letter-spacing:19.52001953125px">von</span>
-<span style="left:106.46875px;top:12.0px;font-size:48.0px;letter-spacing:11.3015625px">unten</span>
-<span style="left:132.8359375px;top:-1.0px;font-size:61.0px;letter-spacing:4.27490234375px">nach</span>
-<span style="left:159.203125px;top:-1.0px;font-size:61.0px;letter-spacing:5.77490234375px">oben</span>
-<span style="left:187.5703125px;top:0.0px;font-size:80.0px;letter-spacing:-9.6640625px">ausgeübt</span>
-<span style="left:210.9375px;top:-1.0px;font-size:61.0px;letter-spacing:-1.52509765625px">wird.</span>
-<span style="left:233.3046875px;top:3.0px;font-size:57.0px;letter-spacing:16.93310546875px">Wenn</span>
-<span style="left:260.671875px;top:-1.0px;font-size:61.0px;letter-spacing:-0.058430989583333336px">das</span><span style="left:260.671875px;font-size:117.0px"><br/></span>
-<span style="left:2.0px;top:0.0px;font-size:61.0px;letter-spacing:2.77490234375px">trotzdem</span>
-<span style="left:12.3671875px;top:0.0px;font-size:69.0px;letter-spacing:1.7918294270833333px">vorkommt,</span>
-<span style="left:22.734375px;top:0.0px;font-size:60.0px;letter-spacing:3.626953125px">wird</span>
-<span style="left:34.1015625px;top:0.0px;font-size:60.0px;letter-spacing:-3.123046875px">dies</span>
-<span style="left:47.46875px;top:1.0px;font-size:59.0px;letter-spacing:4.145670572916667px">mit</span>
-<span style="left:58.8359375px;top:4.0px;font-size:75.0px;letter-spacing:-5.85380859375px">Bestürzung</span>
-<span style="left:70.203125px;top:0.0px;font-size:60.0px;letter-spacing:9.543619791666666px">und</span>
-<span style="left:81.5703125px;top:4.0px;font-size:56.0px;letter-spacing:3.396267361111111px">Entsetzen</span>
-<span style="left:93.9375px;top:21.0px;font-size:39.0px;letter-spacing:13.52001953125px">zur</span>
-<span style="left:106.3046875px;top:1.0px;font-size:59.0px;letter-spacing:3.22900390625px">Kenntnis</span><span style="left:106.3046875px;font-size:138.0px"><br/></span>
-<span style="left:2.0px;top:0.0px;font-size:58.0px;letter-spacing:14.2060546875px">genommen</span>
-<span style="left:14.3671875px;top:-21.0px;font-size:60.0px;letter-spacing:9.543619791666666px">und</span>
-<span style="left:24.734375px;top:-22.0px;font-size:61.0px;letter-spacing:-2.72509765625px">die</span>
-<span style="left:37.1015625px;top:-22.0px;font-size:79.0px;letter-spacing:-7.36201171875px">Opfer</span>
-<span style="left:46.46875px;top:-22.0px;font-size:61.0px;letter-spacing:5.608235677083333px">werden</span>
-<span style="left:58.8359375px;top:0.0px;font-size:38.0px;letter-spacing:27.1220703125px">zum</span>
-<span style="left:71.203125px;top:-22.0px;font-size:61.0px;letter-spacing:-2.582240513392857px">Fetisch</span>
-<span style="left:83.5703125px;top:-22.0px;font-size:61.0px;letter-spacing:1.14990234375px">erhoben.</span><span style="left:83.5703125px;font-size:10px"><br/><br/></span>
+<div class="p" style="left:343px;top:1851px;font-size:16px">
+<span style="left:346px;top:1854px;font-size:58px;transform:scaleX(1.1359640536584912)">Die</span>
+<span style="left:487px;top:1854px;font-size:59px;transform:scaleX(0.9196438799309021)">vierte</span>
+<span style="left:708px;top:1853px;font-size:60px;transform:scaleX(1.0588807785888077)">Prämisse</span>
+<span style="left:1039px;top:1851px;font-size:61px;transform:scaleX(0.9031062892496422)">dieses</span>
+<span style="left:1263px;top:1851px;font-size:61px;transform:scaleX(1.102788081847553)">Buches</span>
+<span style="left:1530px;top:1851px;font-size:70px;transform:scaleX(0.7220219474651175)">lautet,</span>
+<span style="left:1767px;top:1851px;font-size:61px;transform:scaleX(0.9598340712376849)">dass</span>
+<span style="left:1934px;top:1851px;font-size:61px;transform:scaleX(0.9167209569267724)">die</span>
+<span style="left:2059px;top:1851px;font-size:61px;transform:scaleX(0.8894916215725118)">Zivilisation</span>
+<span style="left:2477px;top:1851px;font-size:61px;transform:scaleX(1.0437911885799884)">auf</span>
+<span style="left:2610px;top:1853px;font-size:59px;transform:scaleX(0.9740717830288534)">einer</span>
+<span style="left:2805px;top:1851px;font-size:60px;transform:scaleX(0.9204649905379833)">klar</span><span style="left:158.0390625px;font-size:114px"><br/></span>
+<span style="left:346px;top:1968px;font-size:62px;transform:scaleX(0.9206070595286513)">definierten</span>
+<span style="left:753px;top:1969px;font-size:61px;transform:scaleX(1.2343965360598124)">und</span>
+<span style="left:914px;top:1969px;font-size:61px;transform:scaleX(1.0152652182088582)">weithin</span>
+<span style="left:1203px;top:1969px;font-size:79px;transform:scaleX(0.7180908653698084)">akzeptierten,</span>
+<span style="left:1674px;top:1968px;font-size:62px;transform:scaleX(0.9912356434607436)">aber</span>
+<span style="left:1848px;top:1968px;font-size:81px;transform:scaleX(0.7484705576081624)">häufig</span>
+<span style="left:2093px;top:1968px;font-size:62px;transform:scaleX(0.9483713994191978)">nicht</span>
+<span style="left:2297px;top:1990px;font-size:39px;transform:scaleX(2.1436701534025135)">zum</span>
+<span style="left:2471px;top:1968px;font-size:62px;transform:scaleX(1.1285351751563195)">Ausdruck</span>
+<span style="left:2833px;top:1990px;font-size:59px;transform:scaleX(0.957180364826041)">ge-</span><span style="left:152.3046875px;font-size:119px"><br/></span>
+<span style="left:344px;top:2087px;font-size:61px;transform:scaleX(1.0415220773004668)">brachten</span>
+<span style="left:676px;top:2087px;font-size:61px;transform:scaleX(0.9938707404305106)">Hierarchie</span>
+<span style="left:1065px;top:2087px;font-size:61px;transform:scaleX(0.9724762626521631)">beruht.</span>
+<span style="left:1342px;top:2089px;font-size:58px;transform:scaleX(1.1359640536584912)">Die</span>
+<span style="left:1487px;top:2088px;font-size:58px;transform:scaleX(0.9450457253125262)">in</span>
+<span style="left:1579px;top:2086px;font-size:61px;transform:scaleX(0.9167209569267724)">dieser</span>
+<span style="left:1806px;top:2086px;font-size:61px;transform:scaleX(0.9965936739659368)">Hierarchie</span>
+<span style="left:2195px;top:2108px;font-size:39px;transform:scaleX(1.8313473495955248)">von</span>
+<span style="left:2350px;top:2086px;font-size:61px;transform:scaleX(1.157246752556074)">oben</span>
+<span style="left:2546px;top:2086px;font-size:61px;transform:scaleX(1.116402749524683)">nach</span>
+<span style="left:2736px;top:2099px;font-size:48px;transform:scaleX(1.3910786699107867)">unten</span><span style="left:159.671875px;font-size:117px"><br/></span>
+<span style="left:346px;top:2204px;font-size:80px;transform:scaleX(0.791276921690547)">ausgeübte</span>
+<span style="left:716px;top:2204px;font-size:61px;transform:scaleX(1.0891734141704228)">Gewalt</span>
+<span style="left:979px;top:2204px;font-size:60px;transform:scaleX(0.9089303415337477)">bleibt</span>
+<span style="left:1201px;top:2204px;font-size:60px;transform:scaleX(0.8166531494998649)">fast</span>
+<span style="left:1344px;top:2206px;font-size:58px;transform:scaleX(1.3345191151382947)">immer</span>
+<span style="left:1602px;top:2204px;font-size:69px;transform:scaleX(0.8403424918816857)">unsichtbar,</span>
+<span style="left:2011px;top:2203px;font-size:61px;transform:scaleX(1.2434729811778993)">und</span>
+<span style="left:2173px;top:2203px;font-size:61px;transform:scaleX(1.007485408107641)">das</span>
+<span style="left:2309px;top:2203px;font-size:61px;transform:scaleX(0.8894916215725118)">heißt:</span>
+<span style="left:2533px;top:2203px;font-size:61px;transform:scaleX(1.0918963477058488)">unbemerkt.</span><span style="left:144.3046875px;font-size:117px"><br/></span>
+<span style="left:343px;top:2321px;font-size:60px;transform:scaleX(1.2388213030548798)">Wird</span>
+<span style="left:541px;top:2323px;font-size:59px;transform:scaleX(0.8070344252454856)">sie</span>
+<span style="left:646px;top:2321px;font-size:61px;transform:scaleX(0.9802560727533803)">indes</span>
+<span style="left:843px;top:2321px;font-size:69px;transform:scaleX(0.9328020499077306)">bemerkt,</span>
+<span style="left:1172px;top:2320px;font-size:61px;transform:scaleX(1.1844760879103347)">dann</span>
+<span style="left:1364px;top:2320px;font-size:61px;transform:scaleX(1.0823660803318575)">wird</span>
+<span style="left:1543px;top:2322px;font-size:59px;transform:scaleX(0.8070344252454856)">sie</span>
+<span style="left:1648px;top:2322px;font-size:58px;transform:scaleX(0.9450457253125262)">in</span>
+<span style="left:1731px;top:2320px;font-size:61px;transform:scaleX(1.061944078816162)">vollem</span>
+<span style="left:1985px;top:2320px;font-size:80px;transform:scaleX(0.9723709110570424)">Umfang</span>
+<span style="left:2284px;top:2320px;font-size:61px;transform:scaleX(0.8386635289112255)">rationalisiert.</span>
+<span style="left:2766px;top:2324px;font-size:57px;transform:scaleX(1.092756221453878)">Es</span>
+<span style="left:2861px;top:2322px;font-size:59px;transform:scaleX(0.7225773342314231)">ist</span><span style="left:110.40625px;font-size:117px"><br/></span>
+<span style="left:346px;top:2438px;font-size:69px;transform:scaleX(0.9460418209386792)">undenkbar,</span>
+<span style="left:775px;top:2438px;font-size:61px;transform:scaleX(0.9530267373991199)">dass</span>
+<span style="left:952px;top:2438px;font-size:61px;transform:scaleX(1.0937116367294661)">Gewalt</span>
+<span style="left:1225px;top:2459px;font-size:39px;transform:scaleX(1.8313473495955248)">von</span>
+<span style="left:1391px;top:2450px;font-size:48px;transform:scaleX(1.3910786699107867)">unten</span>
+<span style="left:1628px;top:2437px;font-size:61px;transform:scaleX(1.116402749524683)">nach</span>
+<span style="left:1828px;top:2437px;font-size:61px;transform:scaleX(1.157246752556074)">oben</span>
+<span style="left:2036px;top:2438px;font-size:80px;transform:scaleX(0.7993511759935117)">ausgeübt</span>
+<span style="left:2377px;top:2437px;font-size:61px;transform:scaleX(0.958472604469972)">wird.</span>
+<span style="left:2585px;top:2441px;font-size:57px;transform:scaleX(1.4934335026536332)">Wenn</span>
+<span style="left:2827px;top:2437px;font-size:61px;transform:scaleX(0.9984089629895542)">das</span><span style="left:260.671875px;font-size:117px"><br/></span>
+<span style="left:345px;top:2555px;font-size:61px;transform:scaleX(1.0755587464932923)">trotzdem</span>
+<span style="left:681px;top:2555px;font-size:69px;transform:scaleX(1.0431334751656343)">vorkommt,</span>
+<span style="left:1091px;top:2555px;font-size:60px;transform:scaleX(1.1004055150040553)">wird</span>
+<span style="left:1271px;top:2555px;font-size:60px;transform:scaleX(0.913544201135442)">dies</span>
+<span style="left:1426px;top:2556px;font-size:59px;transform:scaleX(1.116710425630381)">mit</span>
+<span style="left:1566px;top:2559px;font-size:75px;transform:scaleX(0.8703584752635848)">Bestürzung</span>
+<span style="left:1980px;top:2555px;font-size:60px;transform:scaleX(1.2641975308641975)">und</span>
+<span style="left:2138px;top:2559px;font-size:56px;transform:scaleX(1.1007350764041761)">Entsetzen</span>
+<span style="left:2494px;top:2576px;font-size:39px;transform:scaleX(1.5758105101170796)">zur</span>
+<span style="left:2627px;top:2556px;font-size:59px;transform:scaleX(1.090904092264973)">Kenntnis</span><span style="left:106.3046875px;font-size:138px"><br/></span>
+<span style="left:345px;top:2693px;font-size:58px;transform:scaleX(1.4068294319993289)">genommen</span>
+<span style="left:760px;top:2672px;font-size:60px;transform:scaleX(1.2641975308641975)">und</span>
+<span style="left:917px;top:2671px;font-size:61px;transform:scaleX(0.9257974020448593)">die</span>
+<span style="left:1041px;top:2671px;font-size:79px;transform:scaleX(0.8452123564014906)">Opfer</span>
+<span style="left:1261px;top:2671px;font-size:61px;transform:scaleX(1.1527085299970306)">werden</span>
+<span style="left:1537px;top:2693px;font-size:38px;transform:scaleX(2.1855124429077564)">zum</span>
+<span style="left:1709px;top:2671px;font-size:61px;transform:scaleX(0.9296873070954679)">Fetisch</span>
+<span style="left:1970px;top:2671px;font-size:61px;transform:scaleX(1.031311076542619)">erhoben.</span><span style="left:83.5703125px;font-size:10px"><br/><br/></span>
 </div>
-<div class="p" style="left:341.0px;top:2788.0px;font-size:16px">
-<span style="left:99.0px;top:5.0px;font-size:57.0px;letter-spacing:8.016438802083334px">Das</span>
-<span style="left:111.3671875px;top:1.0px;font-size:80.0px;letter-spacing:-20.9140625px">gilt</span>
-<span style="left:122.734375px;top:0.0px;font-size:62.0px;letter-spacing:-3.9938151041666665px">für</span>
-<span style="left:134.1015625px;top:1.0px;font-size:61.0px;letter-spacing:-3.0584309895833335px">die</span>
-<span style="left:146.46875px;top:5.0px;font-size:76.0px;letter-spacing:-11.422526041666666px">Frage,</span>
-<span style="left:156.8359375px;top:1.0px;font-size:61.0px;letter-spacing:5.27490234375px">ob</span>
-<span style="left:169.203125px;top:23.0px;font-size:39.0px;letter-spacing:8.02001953125px">es</span>
-<span style="left:179.5703125px;top:1.0px;font-size:80.0px;letter-spacing:-13.4640625px">berechtigt</span>
-<span style="left:186.9375px;top:38.0px;font-size:6.0px;letter-spacing:40.3876953125px">—</span>
-<span style="left:197.3046875px;top:1.0px;font-size:70.0px;letter-spacing:-6.9435546875px">erwartbar,</span>
-<span style="left:208.671875px;top:1.0px;font-size:70.0px;letter-spacing:-3.1435546875px">normal,</span>
-<span style="left:219.0390625px;top:1.0px;font-size:80.0px;letter-spacing:-9.3640625px">notwendig,</span>
-<span style="left:225.40625px;top:3.0px;font-size:78.0px;letter-spacing:-15.9599609375px">ja</span><span style="left:225.40625px;font-size:135.0px"><br/></span>
-<span style="left:5.0px;top:0.0px;font-size:59.0px;letter-spacing:0.87900390625px">sogar</span>
-<span style="left:13.3671875px;top:-21.0px;font-size:61.0px;letter-spacing:4.5825946514423075px">wünschenswert</span>
-<span style="left:20.734375px;top:16.0px;font-size:6.0px;letter-spacing:41.3876953125px">—</span>
-<span style="left:30.1015625px;top:-19.0px;font-size:68.0px;letter-spacing:-17.189453125px">ist,</span>
-<span style="left:41.46875px;top:-22.0px;font-size:62.0px;letter-spacing:-2.0771484375px">dass</span>
-<span style="left:54.8359375px;top:-22.0px;font-size:61.0px;letter-spacing:-0.058430989583333336px">das</span>
-<span style="left:66.203125px;top:-22.0px;font-size:61.0px;letter-spacing:-2.4393833705357144px">Militär</span>
-<span style="left:76.5703125px;top:-22.0px;font-size:61.0px;letter-spacing:0.27490234375px">der</span>
-<span style="left:86.9375px;top:-16.0px;font-size:56.0px;letter-spacing:18.28515625px">USA</span>
-<span style="left:99.3046875px;top:-22.0px;font-size:62.0px;letter-spacing:8.339518229166666px">und</span>
-<span style="left:110.671875px;top:-20.0px;font-size:60.0px;letter-spacing:-1.923046875px">seine</span>
-<span style="left:123.0390625px;top:-21.0px;font-size:61.0px;letter-spacing:-5.153669084821429px">Stellvertreter</span><span style="left:123.0390625px;font-size:96.0px"><br/></span>
-<span style="left:3.0px;top:0.0px;font-size:60.0px;letter-spacing:-3.923046875px">Zivilisten</span>
-<span style="left:14.3671875px;top:2.0px;font-size:58.0px;letter-spacing:-1.9189453125px">in</span>
-<span style="left:25.734375px;top:0.0px;font-size:61.0px;letter-spacing:-0.058430989583333336px">der</span>
-<span style="left:36.1015625px;top:21.0px;font-size:59.0px;letter-spacing:4.645670572916667px">ganzen</span>
-<span style="left:42.46875px;top:0.0px;font-size:61.0px;letter-spacing:2.77490234375px">Welt</span>
-<span style="left:52.8359375px;top:0.0px;font-size:80.0px;letter-spacing:-7.4640625px">umbringen,</span>
-<span style="left:62.203125px;top:0.0px;font-size:60.0px;letter-spacing:9.876953125px">und</span>
-<span style="left:72.5703125px;top:0.0px;font-size:61.0px;letter-spacing:5.27490234375px">ob</span>
-<span style="left:83.9375px;top:0.0px;font-size:80.0px;letter-spacing:-14.830729166666666px">gleichartige</span>
-<span style="left:94.3046875px;top:0.0px;font-size:80.0px;letter-spacing:-10.548677884615385px">Gegenangriffe</span><span style="left:94.3046875px;font-size:117.0px"><br/></span>
-<span style="left:4.0px;top:0.0px;font-size:61.0px;letter-spacing:5.386013454861111px">undenkbar</span>
-<span style="left:14.3671875px;top:0.0px;font-size:61.0px;letter-spacing:-4.72509765625px">sind.</span>
-<span style="left:25.734375px;top:5.0px;font-size:56.0px;letter-spacing:8.951822916666666px">Das</span>
-<span style="left:36.1015625px;top:0.0px;font-size:80.0px;letter-spacing:-20.6640625px">gilt</span>
-<span style="left:45.46875px;top:0.0px;font-size:61.0px;letter-spacing:3.77490234375px">auch</span>
-<span style="left:55.8359375px;top:0.0px;font-size:61.0px;letter-spacing:-2.72509765625px">für</span>
-<span style="left:65.203125px;top:0.0px;font-size:61.0px;letter-spacing:-2.72509765625px">die</span>
-<span style="left:75.5703125px;top:4.0px;font-size:76.0px;letter-spacing:-11.589192708333334px">Frage,</span>
-<span style="left:84.9375px;top:0.0px;font-size:61.0px;letter-spacing:5.77490234375px">ob</span>
-<span style="left:96.3046875px;top:0.0px;font-size:81.0px;letter-spacing:-9.458420973557692px">routinemäßige</span>
-<span style="left:107.671875px;top:1.0px;font-size:80.0px;letter-spacing:-13.625600961538462px">Polizeigewalt</span><span style="left:107.671875px;font-size:138.0px"><br/></span>
-<span style="left:4.0px;top:0.0px;font-size:59.0px;letter-spacing:3.67900390625px">gegen</span>
-<span style="left:22.3671875px;top:-21.0px;font-size:62.0px;letter-spacing:-5.3271484375px">Zivilisten</span>
-<span style="left:39.734375px;top:-21.0px;font-size:81.0px;letter-spacing:-14.06611328125px">berechtigt</span>
-<span style="left:58.1015625px;top:-19.0px;font-size:60.0px;letter-spacing:-10.456380208333334px">ist</span>
-<span style="left:75.46875px;top:-21.0px;font-size:61.0px;letter-spacing:9.27490234375px">und</span>
-<span style="left:90.8359375px;top:1.0px;font-size:39.0px;letter-spacing:25.72001953125px">warum</span>
-<span style="left:110.203125px;top:-20.0px;font-size:70.0px;letter-spacing:-6.500697544642857px">Polizeibeamte,</span>
-<span style="left:128.5703125px;top:-20.0px;font-size:60.0px;letter-spacing:-2.123046875px">die</span>
-<span style="left:146.9375px;top:-18.0px;font-size:58.0px;letter-spacing:-2.4189453125px">in</span>
-<span style="left:161.3046875px;top:-20.0px;font-size:81.0px;letter-spacing:-4.01611328125px">Ausübung</span><span style="left:161.3046875px;font-size:97.0px"><br/></span>
-<span style="left:4.0px;top:0.0px;font-size:59.0px;letter-spacing:-2.92099609375px">ihres</span>
-<span style="left:16.3671875px;top:2.0px;font-size:58.0px;letter-spacing:1.4560546875px">Dienstes</span>
-<span style="left:28.734375px;top:21.0px;font-size:39.0px;letter-spacing:24.853352864583332px">ums</span>
-<span style="left:41.1015625px;top:0.0px;font-size:60.0px;letter-spacing:5.276953125px">Leben</span>
-<span style="left:50.46875px;top:0.0px;font-size:68.0px;letter-spacing:6.346261160714286px">kommen,</span>
-<span style="left:60.8359375px;top:20.0px;font-size:40.0px;letter-spacing:26.251302083333332px">zum</span>
-<span style="left:73.203125px;top:-1.0px;font-size:61.0px;letter-spacing:-2.582240513392857px">Fetisch</span>
-<span style="left:84.5703125px;top:-1.0px;font-size:80.0px;letter-spacing:-6.306919642857143px">gemacht</span>
-<span style="left:92.9375px;top:-1.0px;font-size:61.0px;letter-spacing:5.441569010416667px">werden</span>
-<span style="left:109.3046875px;top:-1.0px;font-size:73.0px;letter-spacing:-10.616373697916666px">(»Alle</span>
-<span style="left:119.671875px;top:22.0px;font-size:58.0px;letter-spacing:-0.5856119791666666px">ga-</span><span style="left:119.671875px;font-size:115.0px"><br/></span>
-<span style="left:1.0px;top:0.0px;font-size:59.0px;letter-spacing:6.812337239583333px">ben</span>
-<span style="left:10.3671875px;top:0.0px;font-size:68.0px;letter-spacing:-11.225167410714286px">vieles,</span>
-<span style="left:18.734375px;top:0.0px;font-size:59.0px;letter-spacing:-3.92099609375px">viele</span>
-<span style="left:30.1015625px;top:0.0px;font-size:78.0px;letter-spacing:-6.3599609375px">gaben</span>
-<span style="left:42.46875px;top:0.0px;font-size:68.0px;letter-spacing:-7.106119791666667px">alles,</span>
-<span style="left:53.8359375px;top:-1.0px;font-size:60.0px;letter-spacing:1.076953125px">stand</span>
-<span style="left:66.203125px;top:-1.0px;font-size:60.0px;letter-spacing:2.5436197916666665px">auf</span>
-<span style="left:69.5703125px;top:-1.0px;font-size:60.0px;letter-spacing:5.876953125px">den</span>
-<span style="left:82.9375px;top:-1.0px;font-size:79.0px;letter-spacing:-10.425648082386363px">Stoßstangenaufklebern,</span>
-<span style="left:94.3046875px;top:0.0px;font-size:60.0px;letter-spacing:1.126953125px">aber</span>
-<span style="left:102.671875px;top:1.0px;font-size:59.0px;letter-spacing:-1.1876627604166667px">bei</span><span style="left:102.671875px;font-size:115.0px"><br/></span>
-<span style="left:3.0px;top:0.0px;font-size:60.0px;letter-spacing:5.543619791666667px">den</span>
-<span style="left:35.3671875px;top:2.0px;font-size:78.0px;letter-spacing:-13.7099609375px">riesigen</span>
-<span style="left:67.734375px;top:0.0px;font-size:80.0px;letter-spacing:-11.436789772727273px">Polizistenbeerdigungen</span>
-<span style="left:99.1015625px;top:0.0px;font-size:60.0px;letter-spacing:3.126953125px">oder</span>
-<span style="left:129.46875px;top:13.0px;font-size:48.0px;letter-spacing:10.958705357142858px">sonstwo</span>
-<span style="left:162.8359375px;top:1.0px;font-size:60.0px;letter-spacing:4.591238839285714px">erwähnt</span>
-<span style="left:193.203125px;top:3.0px;font-size:58.0px;letter-spacing:-0.5856119791666666px">nie</span>
-<span style="left:220.5703125px;top:1.0px;font-size:79.0px;letter-spacing:-7.276297433035714px">jemand,</span><span style="left:220.5703125px;font-size:116.0px"><br/></span>
-<span style="left:3.0px;top:0.0px;font-size:60.0px;letter-spacing:-1.123046875px">dass</span>
-<span style="left:20.3671875px;top:0.0px;font-size:60.0px;letter-spacing:7.876953125px">Müllmänner</span>
-<span style="left:36.734375px;top:2.0px;font-size:59.0px;letter-spacing:1.87900390625px">einen</span>
-<span style="left:52.1015625px;top:2.0px;font-size:59.0px;letter-spacing:0.47900390625px">weit</span>
-<span style="left:67.46875px;top:0.0px;font-size:80.0px;letter-spacing:-12.878348214285714px">gefährlicheren</span>
-<span style="left:84.8359375px;top:1.0px;font-size:70.0px;letter-spacing:-4.810221354166667px">Job</span>
-<span style="left:100.203125px;top:38.0px;font-size:6.0px;letter-spacing:40.3876953125px">—</span>
-<span style="left:114.5703125px;top:1.0px;font-size:60.0px;letter-spacing:9.543619791666666px">und</span>
-<span style="left:130.9375px;top:3.0px;font-size:58.0px;letter-spacing:0.0810546875px">eine</span>
-<span style="left:145.3046875px;top:3.0px;font-size:59.0px;letter-spacing:1.47900390625px">weitaus</span>
-<span style="left:161.671875px;top:1.0px;font-size:61.0px;letter-spacing:3.27490234375px">höhere</span><span style="left:161.671875px;font-size:116.0px"><br/></span>
-<span style="left:3.0px;top:0.0px;font-size:61.0px;letter-spacing:-3.5028754340277777px">Sterblichkeitsrate</span>
-<span style="left:17.3671875px;top:38.0px;font-size:6.0px;letter-spacing:40.3876953125px">—</span>
-<span style="left:32.734375px;top:1.0px;font-size:60.0px;letter-spacing:5.876953125px">haben</span>
-<span style="left:52.1015625px;top:1.0px;font-size:60.0px;letter-spacing:-7.456380208333333px">als</span>
-<span style="left:71.46875px;top:1.0px;font-size:70.0px;letter-spacing:-10.325372869318182px">Polizisten;</span>
-<span style="left:90.8359375px;top:1.0px;font-size:61.0px;letter-spacing:9.27490234375px">und</span>
-<span style="left:106.203125px;top:1.0px;font-size:61.0px;letter-spacing:-5.52509765625px">bitte</span>
-<span style="left:123.5703125px;top:2.0px;font-size:60.0px;letter-spacing:-0.723046875px">nicht</span>
-<span style="left:141.9375px;top:2.0px;font-size:60.0px;letter-spacing:-2.4563802083333335px">die</span>
-<span style="left:161.3046875px;top:2.0px;font-size:60.0px;letter-spacing:-1.373046875px">Luft</span>
-<span style="left:179.671875px;top:2.0px;font-size:70.0px;letter-spacing:-6.921332465277778px">anhalten,</span><span style="left:179.671875px;font-size:117.0px"><br/></span>
-<span style="left:2.0px;top:0.0px;font-size:80.0px;letter-spacing:-11.592633928571429px">solange</span>
-<span style="left:18.3671875px;top:2.0px;font-size:59.0px;letter-spacing:-3.52099609375px">Sie</span>
-<span style="left:34.734375px;top:0.0px;font-size:61.0px;letter-spacing:1.9415690104166667px">auf</span>
-<span style="left:44.1015625px;top:1.0px;font-size:60.0px;letter-spacing:5.543619791666667px">den</span>
-<span style="left:60.46875px;top:1.0px;font-size:60.0px;letter-spacing:2.001953125px">nächsten</span>
-<span style="left:72.8359375px;top:0.0px;font-size:61.0px;letter-spacing:0.77490234375px">Actionfilm</span>
-<span style="left:88.203125px;top:3.0px;font-size:58.0px;letter-spacing:4.747721354166667px">mit</span>
-<span style="left:104.5703125px;top:5.0px;font-size:56.0px;letter-spacing:5.88515625px">Bruce</span>
-<span style="left:115.9375px;top:1.0px;font-size:61.0px;letter-spacing:-3.5584309895833335px">Willis</span>
-<span style="left:132.3046875px;top:1.0px;font-size:61.0px;letter-spacing:2.52490234375px">oder</span>
-<span style="left:145.671875px;top:4.0px;font-size:58.0px;letter-spacing:17.0810546875px">Tom</span>
-<span style="left:163.0390625px;top:4.0px;font-size:58.0px;letter-spacing:2.2477213541666665px">Cruise</span><span style="left:163.0390625px;font-size:129.0px"><br/></span>
-<span style="left:0.0px;top:0.0px;font-size:57.0px;letter-spacing:2.3973911830357144px">warten,</span>
-<span style="left:15.3671875px;top:-10.0px;font-size:57.0px;letter-spacing:-1.31689453125px">in</span>
-<span style="left:31.734375px;top:-12.0px;font-size:60.0px;letter-spacing:13.543619791666666px">dem</span>
-<span style="left:47.1015625px;top:-10.0px;font-size:78.0px;letter-spacing:-6.626627604166667px">mutige</span>
-<span style="left:61.46875px;top:-12.0px;font-size:61.0px;letter-spacing:7.27490234375px">Müllmänner</span>
-<span style="left:74.8359375px;top:-12.0px;font-size:61.0px;letter-spacing:-2.72509765625px">bei</span>
-<span style="left:90.203125px;top:-12.0px;font-size:61.0px;letter-spacing:0.27490234375px">der</span>
-<span style="left:105.5703125px;top:-12.0px;font-size:81.0px;letter-spacing:-10.95361328125px">Straßenreinigung</span>
-<span style="left:119.9375px;top:-9.0px;font-size:58.0px;letter-spacing:-2.4189453125px">in</span>
-<span style="left:135.3046875px;top:-6.0px;font-size:56.0px;letter-spacing:18.951822916666668px">New</span>
-<span style="left:142.671875px;top:-10.0px;font-size:60.0px;letter-spacing:4.376953125px">York</span><span style="left:142.671875px;font-size:103.0px"><br/></span>
-<span style="left:2.0px;top:0.0px;font-size:60.0px;letter-spacing:2.876953125px">oder</span>
-<span style="left:12.3671875px;top:5.0px;font-size:56.0px;letter-spacing:5.28515625px">Los</span>
-<span style="left:18.734375px;top:1.0px;font-size:80.0px;letter-spacing:-10.021205357142858px">Angeles</span>
-<span style="left:30.1015625px;top:1.0px;font-size:60.0px;letter-spacing:-3.4563802083333335px">ihr</span>
-<span style="left:40.46875px;top:2.0px;font-size:60.0px;letter-spacing:5.276953125px">Leben</span>
-<span style="left:51.8359375px;top:1.0px;font-size:61.0px;letter-spacing:-2.47509765625px">aufs</span>
-<span style="left:64.203125px;top:2.0px;font-size:78.0px;letter-spacing:-14.1599609375px">Spiel</span>
-<span style="left:74.5703125px;top:2.0px;font-size:72.0px;letter-spacing:-10.84765625px">setzen).</span>
-<span style="left:85.9375px;top:6.0px;font-size:56.0px;letter-spacing:3.78515625px">Es</span>
-<span style="left:96.3046875px;top:2.0px;font-size:80.0px;letter-spacing:-20.6640625px">gilt</span>
-<span style="left:105.671875px;top:3.0px;font-size:60.0px;letter-spacing:4.876953125px">auch</span>
-<span style="left:116.0390625px;top:2.0px;font-size:61.0px;letter-spacing:-2.72509765625px">für</span>
-<span style="left:125.40625px;top:3.0px;font-size:60.0px;letter-spacing:-2.4563802083333335px">die</span>
-<span style="left:135.7734375px;top:3.0px;font-size:70.0px;letter-spacing:-0.6991102430555556px">Menschen,</span><span style="left:135.7734375px;font-size:117.0px"><br/></span>
-<span style="left:2.0px;top:0.0px;font-size:59.0px;letter-spacing:-1.8543294270833333px">die</span>
-<span style="left:20.3671875px;top:21.0px;font-size:39.0px;letter-spacing:19.52001953125px">von</span>
-<span style="left:42.734375px;top:0.0px;font-size:60.0px;letter-spacing:0.876953125px">der</span>
-<span style="left:59.1015625px;top:1.0px;font-size:60.0px;letter-spacing:3.376953125px">Welt</span>
-<span style="left:79.46875px;top:22.0px;font-size:39.0px;letter-spacing:12.02001953125px">so</span>
-<span style="left:101.8359375px;top:13.0px;font-size:67.0px;letter-spacing:-3.33740234375px">gut</span>
-<span style="left:120.203125px;top:3.0px;font-size:58.0px;letter-spacing:4.414388020833333px">wie</span>
-<span style="left:141.5703125px;top:1.0px;font-size:60.0px;letter-spacing:6.543619791666667px">unbemerkt</span>
-<span style="left:161.9375px;top:4.0px;font-size:57.0px;letter-spacing:5.68310546875px">Haie</span>
-<span style="left:182.3046875px;top:2.0px;font-size:59.0px;letter-spacing:10.47900390625px">und</span>
-<span style="left:202.671875px;top:2.0px;font-size:60.0px;letter-spacing:2.5436197916666665px">andere</span>
-<span style="left:220.0390625px;top:6.0px;font-size:56.0px;letter-spacing:5.68515625px">Arten</span>
-<span style="left:242.40625px;top:15.0px;font-size:48.0px;letter-spacing:7.212673611111111px">ausrotten</span><span style="left:242.40625px;font-size:116.0px"><br/></span>
-<span style="left:1.0px;top:0.0px;font-size:60.0px;letter-spacing:9.543619791666666px">und</span>
-<span style="left:24.3671875px;top:0.0px;font-size:80.0px;letter-spacing:-15.830729166666666px">gleichzeitig</span>
-<span style="left:47.734375px;top:0.0px;font-size:61.0px;letter-spacing:-3.0584309895833335px">die</span>
-<span style="left:73.1015625px;top:1.0px;font-size:60.0px;letter-spacing:-1.248046875px">seltenen</span>
-<span style="left:99.46875px;top:1.0px;font-size:60.0px;letter-spacing:-4.323046875px">Fälle</span>
-<span style="left:123.8359375px;top:3.0px;font-size:58.0px;letter-spacing:-1.9189453125px">in</span>
-<span style="left:149.203125px;top:1.0px;font-size:61.0px;letter-spacing:-3.0584309895833335px">die</span>
-<span style="left:169.5703125px;top:2.0px;font-size:60.0px;letter-spacing:3.626953125px">Welt</span>
-<span style="left:191.9375px;top:2.0px;font-size:79.0px;letter-spacing:-8.295345052083333px">hinausposaunen,</span>
-<span style="left:216.3046875px;top:5.0px;font-size:57.0px;letter-spacing:-1.31689453125px">in</span>
-<span style="left:241.671875px;top:3.0px;font-size:60.0px;letter-spacing:5.876953125px">denen</span><span style="left:241.671875px;font-size:10px"><br/><br/></span>
+<div class="p" style="left:341px;top:2788px;font-size:16px">
+<span style="left:440px;top:2793px;font-size:57px;transform:scaleX(1.2336003566634888)">Das</span>
+<span style="left:589px;top:2789px;font-size:80px;transform:scaleX(0.5657745336577453)">gilt</span>
+<span style="left:719px;top:2788px;font-size:62px;transform:scaleX(0.8930050841988679)">für</span>
+<span style="left:840px;top:2789px;font-size:61px;transform:scaleX(0.9167209569267724)">die</span>
+<span style="left:963px;top:2793px;font-size:76px;transform:scaleX(0.7503592720649963)">Frage,</span>
+<span style="left:1189px;top:2789px;font-size:61px;transform:scaleX(1.1436320848789439)">ob</span>
+<span style="left:1295px;top:2811px;font-size:39px;transform:scaleX(1.341568407261838)">es</span>
+<span style="left:1378px;top:2789px;font-size:80px;transform:scaleX(0.7204541768045418)">berechtigt</span>
+<span style="left:1742px;top:2826px;font-size:6px;transform:scaleX(12.18058934847256)">—</span>
+<span style="left:1806px;top:2789px;font-size:70px;transform:scaleX(0.8352404124666899)">erwartbar,</span>
+<span style="left:2179px;top:2789px;font-size:70px;transform:scaleX(0.9254084115397985)">normal,</span>
+<span style="left:2472px;top:2789px;font-size:80px;transform:scaleX(0.8055798864557989)">notwendig,</span>
+<span style="left:2876px;top:2791px;font-size:78px;transform:scaleX(0.6601368353193171)">ja</span><span style="left:225.40625px;font-size:135px"><br/></span>
+<span style="left:346px;top:2928px;font-size:59px;transform:scaleX(1.024746037637291)">sogar</span>
+<span style="left:546px;top:2907px;font-size:61px;transform:scaleX(1.1247810065567634)">wünschenswert</span>
+<span style="left:1100px;top:2944px;font-size:6px;transform:scaleX(12.457420924574208)">—</span>
+<span style="left:1164px;top:2909px;font-size:68px;transform:scaleX(0.580124994036544)">ist,</span>
+<span style="left:1280px;top:2906px;font-size:62px;transform:scaleX(0.944352876540303)">dass</span>
+<span style="left:1444px;top:2906px;font-size:61px;transform:scaleX(0.9984089629895542)">das</span>
+<span style="left:1575px;top:2906px;font-size:61px;transform:scaleX(0.9335772121460766)">Militär</span>
+<span style="left:1835px;top:2906px;font-size:61px;transform:scaleX(1.007485408107641)">der</span>
+<span style="left:1966px;top:2912px;font-size:56px;transform:scaleX(1.542347352566331)">USA</span>
+<span style="left:2144px;top:2906px;font-size:62px;transform:scaleX(1.2234169653524491)">und</span>
+<span style="left:2302px;top:2908px;font-size:60px;transform:scaleX(0.9467639902676399)">seine</span>
+<span style="left:2495px;top:2907px;font-size:61px;transform:scaleX(0.8596690161845121)">Stellvertreter</span><span style="left:123.0390625px;font-size:96px"><br/></span>
+<span style="left:344px;top:3024px;font-size:60px;transform:scaleX(0.89139767504731)">Zivilisten</span>
+<span style="left:687px;top:3026px;font-size:58px;transform:scaleX(0.9450457253125262)">in</span>
+<span style="left:774px;top:3024px;font-size:61px;transform:scaleX(0.9984089629895542)">der</span>
+<span style="left:904px;top:3045px;font-size:59px;transform:scaleX(1.1307866074660582)">ganzen</span>
+<span style="left:1161px;top:3024px;font-size:61px;transform:scaleX(1.0755587464932923)">Welt</span>
+<span style="left:1339px;top:3024px;font-size:80px;transform:scaleX(0.845028386050284)">umbringen,</span>
+<span style="left:1765px;top:3024px;font-size:60px;transform:scaleX(1.273425250067586)">und</span>
+<span style="left:1923px;top:3024px;font-size:61px;transform:scaleX(1.1436320848789439)">ob</span>
+<span style="left:2028px;top:3024px;font-size:80px;transform:scaleX(0.6920789402541226)">gleichartige</span>
+<span style="left:2448px;top:3024px;font-size:80px;transform:scaleX(0.7809844656559985)">Gegenangriffe</span><span style="left:94.3046875px;font-size:117px"><br/></span>
+<span style="left:345px;top:3141px;font-size:61px;transform:scaleX(1.1466575665849728)">undenkbar</span>
+<span style="left:744px;top:3141px;font-size:61px;transform:scaleX(0.8713387313363381)">sind.</span>
+<span style="left:925px;top:3146px;font-size:56px;transform:scaleX(1.2655157764646816)">Das</span>
+<span style="left:1073px;top:3141px;font-size:80px;transform:scaleX(0.5709651257096513)">gilt</span>
+<span style="left:1202px;top:3141px;font-size:61px;transform:scaleX(1.102788081847553)">auch</span>
+<span style="left:1384px;top:3141px;font-size:61px;transform:scaleX(0.9257974020448593)">für</span>
+<span style="left:1505px;top:3141px;font-size:61px;transform:scaleX(0.9257974020448593)">die</span>
+<span style="left:1627px;top:3145px;font-size:76px;transform:scaleX(0.7467167513268166)">Frage,</span>
+<span style="left:1851px;top:3141px;font-size:61px;transform:scaleX(1.157246752556074)">ob</span>
+<span style="left:1957px;top:3141px;font-size:81px;transform:scaleX(0.8060452158857133)">routinemäßige</span>
+<span style="left:2489px;top:3142px;font-size:80px;transform:scaleX(0.7171002557863873)">Polizeigewalt</span><span style="left:107.671875px;font-size:138px"><br/></span>
+<span style="left:345px;top:3279px;font-size:59px;transform:scaleX(1.1035726559170826)">gegen</span>
+<span style="left:569px;top:3258px;font-size:62px;transform:scaleX(0.8572848808309133)">Zivilisten</span>
+<span style="left:916px;top:3258px;font-size:81px;transform:scaleX(0.7115596807946092)">berechtigt</span>
+<span style="left:1291px;top:3260px;font-size:60px;transform:scaleX(0.7105343786608994)">ist</span>
+<span style="left:1395px;top:3258px;font-size:61px;transform:scaleX(1.252549426295986)">und</span>
+<span style="left:1558px;top:3280px;font-size:39px;transform:scaleX(2.0954020837232514)">warum</span>
+<span style="left:1833px;top:3259px;font-size:70px;transform:scaleX(0.8457487131105482)">Polizeibeamte,</span>
+<span style="left:2360px;top:3259px;font-size:60px;transform:scaleX(0.9412273587456069)">die</span>
+<span style="left:2490px;top:3261px;font-size:58px;transform:scaleX(0.9307268506865789)">in</span>
+<span style="left:2579px;top:3259px;font-size:81px;transform:scaleX(0.9176454096702813)">Ausübung</span><span style="left:161.3046875px;font-size:97px"><br/></span>
+<span style="left:345px;top:3376px;font-size:59px;transform:scaleX(0.917767055686145)">ihres</span>
+<span style="left:530px;top:3378px;font-size:58px;transform:scaleX(1.041698129037671)">Dienstes</span>
+<span style="left:843px;top:3397px;font-size:39px;transform:scaleX(2.0584912069096983)">ums</span>
+<span style="left:1010px;top:3376px;font-size:60px;transform:scaleX(1.1460827250608272)">Leben</span>
+<span style="left:1236px;top:3376px;font-size:68px;transform:scaleX(1.1550157776005778)">kommen,</span>
+<span style="left:1587px;top:3396px;font-size:40px;transform:scaleX(2.090078399567451)">zum</span>
+<span style="left:1760px;top:3375px;font-size:61px;transform:scaleX(0.9296873070954679)">Fetisch</span>
+<span style="left:2020px;top:3375px;font-size:80px;transform:scaleX(0.8690534121191055)">gemacht</span>
+<span style="left:2331px;top:3375px;font-size:61px;transform:scaleX(1.1481703074379872)">werden</span>
+<span style="left:2610px;top:3375px;font-size:73px;transform:scaleX(0.7584426742510934)">(»Alle</span>
+<span style="left:2830px;top:3398px;font-size:58px;transform:scaleX(0.9832293909817192)">ga-</span><span style="left:119.671875px;font-size:115px"><br/></span>
+<span style="left:342px;top:3491px;font-size:59px;transform:scaleX(1.1917833954206587)">ben</span>
+<span style="left:488px;top:3491px;font-size:68px;transform:scaleX(0.7258105188547439)">vieles,</span>
+<span style="left:714px;top:3491px;font-size:59px;transform:scaleX(0.8896146920147909)">viele</span>
+<span style="left:893px;top:3491px;font-size:78px;transform:scaleX(0.8645663069020733)">gaben</span>
+<span style="left:1118px;top:3491px;font-size:68px;transform:scaleX(0.8264236757152172)">alles,</span>
+<span style="left:1342px;top:3490px;font-size:60px;transform:scaleX(1.0298134630981346)">stand</span>
+<span style="left:1550px;top:3490px;font-size:60px;transform:scaleX(1.070415427593043)">auf</span>
+<span style="left:1679px;top:3490px;font-size:60px;transform:scaleX(1.1626926196269263)">den</span>
+<span style="left:1828px;top:3490px;font-size:79px;transform:scaleX(0.78079884122571)">Stoßstangenaufklebern,</span>
+<span style="left:2666px;top:3491px;font-size:60px;transform:scaleX(1.0311976209786429)">aber</span>
+<span style="left:2833px;top:3492px;font-size:59px;transform:scaleX(0.9665644860498257)">bei</span><span style="left:102.671875px;font-size:115px"><br/></span>
+<span style="left:344px;top:3606px;font-size:60px;transform:scaleX(1.153464900423538)">den</span>
+<span style="left:511px;top:3608px;font-size:78px;transform:scaleX(0.7080499927215256)">riesigen</span>
+<span style="left:819px;top:3606px;font-size:80px;transform:scaleX(0.7625451596254517)">Polizistenbeerdigungen</span>
+<span style="left:1668px;top:3606px;font-size:60px;transform:scaleX(1.0865639361989727)">oder</span>
+<span style="left:1865px;top:3619px;font-size:48px;transform:scaleX(1.3792144595064304)">sonstwo</span>
+<span style="left:2187px;top:3607px;font-size:60px;transform:scaleX(1.127099988413857)">erwähnt</span>
+<span style="left:2512px;top:3609px;font-size:58px;transform:scaleX(0.9832293909817192)">nie</span>
+<span style="left:2652px;top:3607px;font-size:79px;transform:scaleX(0.8470145149439245)">jemand,</span><span style="left:220.5703125px;font-size:116px"><br/></span>
+<span style="left:344px;top:3722px;font-size:60px;transform:scaleX(0.9689105163557719)">dass</span>
+<span style="left:511px;top:3722px;font-size:60px;transform:scaleX(1.2180589348472561)">Müllmänner</span>
+<span style="left:977px;top:3724px;font-size:59px;transform:scaleX(1.052898401308645)">einen</span>
+<span style="left:1189px;top:3724px;font-size:59px;transform:scaleX(1.0134850921687493)">weit</span>
+<span style="left:1358px;top:3722px;font-size:80px;transform:scaleX(0.7326149924690071)">gefährlicheren</span>
+<span style="left:1879px;top:3723px;font-size:70px;transform:scaleX(0.8858610435252771)">Job</span>
+<span style="left:2016px;top:3760px;font-size:6px;transform:scaleX(12.18058934847256)">—</span>
+<span style="left:2084px;top:3723px;font-size:60px;transform:scaleX(1.2641975308641975)">und</span>
+<span style="left:2247px;top:3725px;font-size:58px;transform:scaleX(1.0023212238163157)">eine</span>
+<span style="left:2411px;top:3725px;font-size:59px;transform:scaleX(1.0416374558401034)">weitaus</span>
+<span style="left:2696px;top:3723px;font-size:61px;transform:scaleX(1.0891734141704228)">höhere</span><span style="left:161.671875px;font-size:116px"><br/></span>
+<span style="left:344px;top:3838px;font-size:61px;transform:scaleX(0.9046190301026567)">Sterblichkeitsrate</span>
+<span style="left:966px;top:3876px;font-size:6px;transform:scaleX(12.18058934847256)">—</span>
+<span style="left:1035px;top:3839px;font-size:60px;transform:scaleX(1.162692619626926)">haben</span>
+<span style="left:1274px;top:3839px;font-size:60px;transform:scaleX(0.7935838514913941)">als</span>
+<span style="left:1389px;top:3839px;font-size:70px;transform:scaleX(0.754995207549952)">Polizisten;</span>
+<span style="left:1768px;top:3839px;font-size:61px;transform:scaleX(1.252549426295986)">und</span>
+<span style="left:1931px;top:3839px;font-size:61px;transform:scaleX(0.8495552630529298)">bitte</span>
+<span style="left:2114px;top:3840px;font-size:60px;transform:scaleX(0.9799837793998376)">nicht</span>
+<span style="left:2319px;top:3840px;font-size:60px;transform:scaleX(0.9319996395422186)">die</span>
+<span style="left:2449px;top:3840px;font-size:60px;transform:scaleX(0.9619897269532306)">Luft</span>
+<span style="left:2616px;top:3840px;font-size:70px;transform:scaleX(0.8357677107068834)">anhalten,</span><span style="left:179.671875px;font-size:117px"><br/></span>
+<span style="left:343px;top:3955px;font-size:80px;transform:scaleX(0.759309465878809)">solange</span>
+<span style="left:625px;top:3957px;font-size:59px;transform:scaleX(0.9008756374833328)">Sie</span>
+<span style="left:747px;top:3955px;font-size:61px;transform:scaleX(1.0528676336980751)">auf</span>
+<span style="left:882px;top:3956px;font-size:60px;transform:scaleX(1.153464900423538)">den</span>
+<span style="left:1033px;top:3956px;font-size:60px;transform:scaleX(1.0554203838875371)">nächsten</span>
+<span style="left:1360px;top:3955px;font-size:61px;transform:scaleX(1.0211000757847715)">Actionfilm</span>
+<span style="left:1760px;top:3958px;font-size:58px;transform:scaleX(1.1359640536584912)">mit</span>
+<span style="left:1905px;top:3960px;font-size:56px;transform:scaleX(1.1745568300312825)">Bruce</span>
+<span style="left:2124px;top:3956px;font-size:61px;transform:scaleX(0.9031062892496422)">Willis</span>
+<span style="left:2349px;top:3956px;font-size:61px;transform:scaleX(1.0687514126547273)">oder</span>
+<span style="left:2529px;top:3959px;font-size:58px;transform:scaleX(1.4891629610985264)">Tom</span>
+<span style="left:2712px;top:3959px;font-size:58px;transform:scaleX(1.0643696805287544)">Cruise</span><span style="left:163.0390625px;font-size:129px"><br/></span>
+<span style="left:341px;top:4084px;font-size:57px;transform:scaleX(1.0698603768138921)">warten,</span>
+<span style="left:623px;top:4074px;font-size:57px;transform:scaleX(0.9616254748794126)">in</span>
+<span style="left:715px;top:4072px;font-size:60px;transform:scaleX(1.3749301613048572)">dem</span>
+<span style="left:889px;top:4074px;font-size:78px;transform:scaleX(0.8588877104692191)">mutige</span>
+<span style="left:1155px;top:4072px;font-size:61px;transform:scaleX(1.198090755587465)">Müllmänner</span>
+<span style="left:1618px;top:4072px;font-size:61px;transform:scaleX(0.9257974020448593)">bei</span>
+<span style="left:1745px;top:4072px;font-size:61px;transform:scaleX(1.007485408107641)">der</span>
+<span style="left:1881px;top:4072px;font-size:81px;transform:scaleX(0.7753847386180449)">Straßenreinigung</span>
+<span style="left:2510px;top:4075px;font-size:58px;transform:scaleX(0.9307268506865789)">in</span>
+<span style="left:2600px;top:4078px;font-size:56px;transform:scaleX(1.5621210365735914)">New</span>
+<span style="left:2775px;top:4074px;font-size:60px;transform:scaleX(1.121167883211679)">York</span><span style="left:142.671875px;font-size:103px"><br/></span>
+<span style="left:343px;top:4187px;font-size:60px;transform:scaleX(1.0796431467964316)">oder</span>
+<span style="left:519px;top:4192px;font-size:56px;transform:scaleX(1.156760514424748)">Los</span>
+<span style="left:652px;top:4188px;font-size:80px;transform:scaleX(0.7919360444907891)">Angeles</span>
+<span style="left:940px;top:4188px;font-size:60px;transform:scaleX(0.9043164819320538)">ihr</span>
+<span style="left:1058px;top:4189px;font-size:60px;transform:scaleX(1.1460827250608272)">Leben</span>
+<span style="left:1286px;top:4188px;font-size:61px;transform:scaleX(0.9326047358834244)">aufs</span>
+<span style="left:1445px;top:4189px;font-size:78px;transform:scaleX(0.6984673612410839)">Spiel</span>
+<span style="left:1629px;top:4189px;font-size:72px;transform:scaleX(0.7497521852752996)">setzen).</span>
+<span style="left:1910px;top:4193px;font-size:56px;transform:scaleX(1.1122697254084115)">Es</span>
+<span style="left:2005px;top:4189px;font-size:80px;transform:scaleX(0.5709651257096513)">gilt</span>
+<span style="left:2134px;top:4190px;font-size:60px;transform:scaleX(1.1350094620167612)">auch</span>
+<span style="left:2318px;top:4189px;font-size:61px;transform:scaleX(0.9257974020448593)">für</span>
+<span style="left:2439px;top:4190px;font-size:60px;transform:scaleX(0.9319996395422186)">die</span>
+<span style="left:2560px;top:4190px;font-size:70px;transform:scaleX(0.9834112179610963)">Menschen,</span><span style="left:135.7734375px;font-size:117px"><br/></span>
+<span style="left:343px;top:4304px;font-size:59px;transform:scaleX(0.9477962436022563)">die</span>
+<span style="left:472px;top:4325px;font-size:39px;transform:scaleX(1.8313473495955248)">von</span>
+<span style="left:633px;top:4304px;font-size:60px;transform:scaleX(1.0242768315761017)">der</span>
+<span style="left:770px;top:4305px;font-size:60px;transform:scaleX(1.0934847256015139)">Welt</span>
+<span style="left:958px;top:4326px;font-size:39px;transform:scaleX(1.511926300247468)">so</span>
+<span style="left:1061px;top:4317px;font-size:67px;transform:scaleX(0.9172628342472552)">gut</span>
+<span style="left:1200px;top:4307px;font-size:58px;transform:scaleX(1.126418137241193)">wie</span>
+<span style="left:1349px;top:4305px;font-size:60px;transform:scaleX(1.1811480580337028)">unbemerkt</span>
+<span style="left:1763px;top:4308px;font-size:57px;transform:scaleX(1.1656066362174697)">Haie</span>
+<span style="left:1953px;top:4306px;font-size:59px;transform:scaleX(1.2950087288822907)">und</span>
+<span style="left:2121px;top:4306px;font-size:60px;transform:scaleX(1.070415427593043)">andere</span>
+<span style="left:2380px;top:4310px;font-size:56px;transform:scaleX(1.1686247248291042)">Arten</span>
+<span style="left:2609px;top:4319px;font-size:48px;transform:scaleX(1.2495869754588327)">ausrotten</span><span style="left:242.40625px;font-size:116px"><br/></span>
+<span style="left:342px;top:4420px;font-size:60px;transform:scaleX(1.2641975308641975)">und</span>
+<span style="left:512px;top:4420px;font-size:80px;transform:scaleX(0.6713165720464991)">gleichzeitig</span>
+<span style="left:933px;top:4420px;font-size:61px;transform:scaleX(0.9167209569267724)">die</span>
+<span style="left:1069px;top:4421px;font-size:60px;transform:scaleX(0.9654501216545012)">seltenen</span>
+<span style="left:1384px;top:4421px;font-size:60px;transform:scaleX(0.8803244120032442)">Fälle</span>
+<span style="left:1577px;top:4423px;font-size:58px;transform:scaleX(0.9450457253125262)">in</span>
+<span style="left:1678px;top:4421px;font-size:61px;transform:scaleX(0.9167209569267724)">die</span>
+<span style="left:1809px;top:4422px;font-size:60px;transform:scaleX(1.1004055150040553)">Welt</span>
+<span style="left:2000px;top:4422px;font-size:79px;transform:scaleX(0.8255888522727661)">hinausposaunen,</span>
+<span style="left:2623px;top:4425px;font-size:57px;transform:scaleX(0.9616254748794126)">in</span>
+<span style="left:2724px;top:4423px;font-size:60px;transform:scaleX(1.162692619626926)">denen</span><span style="left:241.671875px;font-size:10px"><br/><br/></span>
 </div>
-<div class="p" style="left:1598.0px;top:4659.0px;font-size:16px">
-<span style="left:0.0px;top:0.0px;font-size:55.0px;letter-spacing:2.38720703125px">81</span><span style="left:0.0px;font-size:10px"><br/><br/><br/><br/></span>
+<div class="p" style="left:1598px;top:4659px;font-size:16px">
+<span style="left:1598px;top:4659px;font-size:55px;transform:scaleX(1.0720931947209318)">81</span><span style="left:0px;font-size:10px"><br/><br/><br/><br/></span>
 </div>
 </div>
 </body>
