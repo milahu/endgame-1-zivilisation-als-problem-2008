@@ -1,6 +1,6 @@
-# Endgame, Teil 1. Zivilisation als Problem (2008)
+# Derrick Jensen - Endgame, Teil 1. Zivilisation als Problem (2008)
 
-![Endgame, Teil 1. Zivilisation als Problem (2008)](cover.avif)
+![Derrick Jensen - Endgame, Teil 1. Zivilisation als Problem (2008)](cover.avif)
 
 https://www.amazon.de/dp/386612192X
 
